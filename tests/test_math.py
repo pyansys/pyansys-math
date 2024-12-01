@@ -204,19 +204,35 @@ def test_shape(mm):
     assert m1.shape == shape
 
 
-def test_matrix(mm):
-    sz = 5000
-    mat = sparse.random(sz, sz, density=0.05, format="csr")
-    assert mat.data.nbytes // 1024**2 > 4, "Must test over gRPC message limit"
+@pytest.mark.parametrize("sparse_mat", ["sparse_asym_mat", "sparse_sym_mat"])
+def test_sparse_matrix(mm, sparse_mat, request):
+    sparse_mat = request.getfixturevalue(sparse_mat)
+    assert sparse_mat.data.nbytes // 1024**2 > 4, "Must test over gRPC message limit"
 
     name = "TMP_MATRIX"
-    ans_mat = mm.matrix(mat, name)
+    ans_mat = mm.matrix(sparse_mat, name)
     assert ans_mat.id == name
 
     mat_back = ans_mat.asarray()
-    assert np.allclose(mat.data, mat_back.data)
-    assert np.allclose(mat.indices, mat_back.indices)
-    assert np.allclose(mat.indptr, mat_back.indptr)
+    assert np.allclose(sparse_mat.data, mat_back.data)
+    assert np.allclose(sparse_mat.indices, mat_back.indices)
+    assert np.allclose(sparse_mat.indptr, mat_back.indptr)
+
+
+@pytest.mark.parametrize("dense_mat", ["dense_asym_mat", "dense_sym_mat"])
+def test_dense_matrix(mm, dense_mat, request):
+    mapdl_version = mm._mapdl.version
+    if mapdl_version < 21.2:
+        pytest.skip("Requires MAPDL 2021 R2 or later.")
+
+    dense_mat = request.getfixturevalue(dense_mat)
+
+    name = "TMP_MATRIX"
+    ans_mat = mm.matrix(dense_mat, name)
+    assert ans_mat.id == name
+
+    mat_back = ans_mat.asarray()
+    assert np.allclose(dense_mat, mat_back)
 
 
 def test_matrix_fail(mm):
@@ -740,6 +756,22 @@ def test_invalid_sparse_name(mm):
     mat = sparse.random(10, 10, density=0.05, format="csr", dtype=np.uint8)
     with pytest.raises(TypeError, match="must be a string"):
         mm.matrix(mat, name=1)
+
+
+def test_sym_dmat(mm, dense_sym_mat):
+    dmat = mm.matrix(dense_sym_mat)
+    if not server_meets_version(mm._server_version, (0, 5, 0)):
+        assert dmat.sym() is False
+    else:
+        assert dmat.sym() is True
+
+
+def test_sym_smat(mm, sparse_sym_mat):
+    smat = mm.matrix(sparse_sym_mat)
+    if not server_meets_version(mm._server_version, (0, 5, 0)):
+        assert smat.sym() is False
+    else:
+        assert smat.sym() is True
 
 
 def test_free_all(mm):

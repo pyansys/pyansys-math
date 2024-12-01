@@ -46,6 +46,7 @@ from ansys.mapdl.core.parameters import interp_star_status
 from ansys.tools.versioning import requires_version
 from ansys.tools.versioning.utils import server_meets_version
 import numpy as np
+from scipy import sparse
 
 MYCTYPE = {
     np.int32: "I",
@@ -437,7 +438,7 @@ class AnsMath:
             return self.vec(nrow, dtype, init="rand", name=name, asarray=asarray)
         return self.mat(nrow, ncol, dtype, init="rand", name=name, asarray=asarray)
 
-    def matrix(self, matrix, name=None, triu=False):
+    def matrix(self, matrix, name=None, sym=None):
         """Send a SciPy matrix or NumPy array to MAPDL.
 
         Parameters
@@ -447,9 +448,9 @@ class AnsMath:
         name : str, optional
             AnsMath matrix name. The default is ``None``, in which case a
             name is automatically generated.
-        triu : bool, optional
-            Whether the matrix is the upper triangular. The default is ``False``,
-            which means that the matrix is unsymmetric.
+        sym : bool, optional
+            Whether the matrix is symmetric rather than dense.
+            The default is ``None`` which means that the matrix will be tested whether it is symmetric or not.
 
         Returns
         -------
@@ -479,9 +480,7 @@ class AnsMath:
         elif not isinstance(name, str):
             raise TypeError("``name`` parameter must be a string")
 
-        from scipy import sparse
-
-        self._set_mat(name, matrix, triu)
+        self._set_mat(name, matrix, sym)
         if sparse.issparse(matrix):
             ans_mat = AnsSparseMat(name, self._mapdl)
         else:
@@ -1193,7 +1192,7 @@ class AnsMath:
         self._mapdl._stub.SetVecData(chunks_generator)
 
     @protect_grpc
-    def _set_mat(self, mname, arr, sym=False, dtype=None, chunk_size=DEFAULT_CHUNKSIZE):
+    def _set_mat(self, mname, arr, sym=None, dtype=None, chunk_size=DEFAULT_CHUNKSIZE):
         """Transfer a 2D dense or sparse SciPy array to MAPDL as an AnsMath matrix.
 
         Parameters
@@ -1204,7 +1203,7 @@ class AnsMath:
             Matrix to upload.
         sym : bool
             Whether the matrix is symmetric rather than dense.
-            The default is ``False`` which means that the matrix is dense.
+            The default is ``None`` which means that the matrix will be tested whether it is symmetric or not.
         dtype : np.dtype, optional
             NumPy data type to upload the array as. The options are ``np.double``,
             ``np.int32``, and ``np.int64``. The default is the current array
@@ -1213,7 +1212,6 @@ class AnsMath:
             Chunk size in bytes. The value must be less than 4MB.
 
         """
-        from scipy import sparse
 
         if ":" in mname:
             raise ValueError("The character ':' is not permitted in the name of an AnsMath matrix.")
@@ -1227,6 +1225,12 @@ class AnsMath:
                 raise ValueError("Arrays must be 2-dimensional.")
 
         if sparse.issparse(arr):
+            if sym is None:
+                arrT = arr.T
+                sym = (
+                    bool(np.allclose(arr.data, arrT.data))
+                    and bool(np.allclose(arr.indices, arrT.indices))
+                ) and bool(np.allclose(arr.indptr, arrT.indptr))
             self._send_sparse(mname, arr, sym, dtype, chunk_size)
         else:  # must be dense matrix
             self._send_dense(mname, arr, dtype, chunk_size)
@@ -1250,9 +1254,6 @@ class AnsMath:
 
     def _send_sparse(self, mname, arr, sym, dtype, chunk_size):
         """Send a SciPy sparse sparse matrix to MAPDL."""
-        if sym is None:
-            raise ValueError("The symmetric flag ``sym`` must be set for a sparse matrix.")
-        from scipy import sparse
 
         arr = sparse.csr_matrix(arr)
 
@@ -1272,9 +1273,9 @@ class AnsMath:
 
         # data vector
         dataname = f"{mname}_DATA"
-        ans_vec = self.set_vec(arr.data, dataname)
+        self.set_vec(arr.data, dataname)
         if dtype is None:
-            info = self._mapdl._data_info(ans_vec.id)
+            info = self._mapdl._data_info(dataname)
             dtype = ANSYS_VALUE_TYPE[info.stype]
 
         # indptr vector
@@ -1289,8 +1290,7 @@ class AnsMath:
 
         flagsym = "TRUE" if sym else "FALSE"
         self._mapdl.run(
-            f"*SMAT,{mname},{MYCTYPE[dtype]},ALLOC,CSR,{indptrname},{indxname},"
-            f"{dataname},{flagsym}"
+            f"*SMAT,{mname},{MYCTYPE[dtype]},ALLOC,CSR,{indptrname},{indxname},{dataname},{flagsym}"
         )
 
 
@@ -1701,22 +1701,46 @@ class AnsMat(AnsMathObj):
         bool
             ``True`` when this matrix is symmetric.
 
+        Notes
+        -----
+            ``sym`` requires MAPDL version 2022R2 or later. If a previous version is used, the default value is False.
+
         """
 
         info = self._mapdl._data_info(self.id)
 
         if server_meets_version(self._mapdl._server_version, (0, 5, 0)):  # pragma: no cover
-            return info.mattype in [
-                0,
-                1,
-                2,
-            ]  # [UPPER, LOWER, DIAG] respectively
+            sym = True
+            type_mat = info.mattype
+            if type_mat == 2:  # [UPPER=0, LOWER=1, DIAG=2, FULL=3]
+                pass  # A diagonal matrix is symmetric.
 
-        warn(
-            "Call to ``sym`` method cannot evaluate if this matrix is symmetric "
-            "with this version of MAPDL."
-        )
-        return True
+            else:
+                if info.objtype == 2:  # DMAT
+                    n = info.size1
+                    i = 2
+                    j = 1
+                    t = 1e-16
+                    while i < n and sym is True:
+                        while j < i and sym is True:
+                            if abs(self[i][j] - self[j][i]) > t:
+                                sym = False
+                            j += 1
+                        i += 1
+
+                elif info.objtype == 3:  # SMAT
+                    mat = self.asarray()
+                    matT = mat.T
+                    sym = (
+                        bool(np.allclose(mat.data, matT.data))
+                        and bool(np.allclose(mat.indices, matT.indices))
+                    ) and bool(np.allclose(mat.indptr, matT.indptr))
+
+        else:
+            warn("``sym`` requires MAPDL version 2022R2 or later. The default value is False.")
+            sym = False
+
+        return sym
 
     def asarray(self, dtype=None) -> np.ndarray:
         """Return the matrix as a NumPy array.
@@ -1854,9 +1878,10 @@ class AnsDenseMat(AnsMat):
 class AnsSparseMat(AnsMat):
     """Provides the AnsMath sparse matrix objects."""
 
-    def __init__(self, uid, mapdl):
+    def __init__(self, uid, mapdl, sym=True):
         """Initiate an AnsMath sparse matrix object."""
         AnsMat.__init__(self, uid, mapdl, ObjType.SMAT)
+        self.sym = sym
 
     def __repr__(self):
         return f"AnsMath sparse matrix ({self.nrow}, {self.ncol})"
@@ -1876,7 +1901,7 @@ class AnsSparseMat(AnsMat):
         AnsMath sparse matrix (126, 126)
 
         """
-        return AnsSparseMat(AnsMathObj.copy(self), self._mapdl)
+        return AnsSparseMat(AnsMathObj.copy(self), self._mapdl, self._sym)
 
     def todense(self) -> np.ndarray:
         """Return the array as a NumPy dense array.

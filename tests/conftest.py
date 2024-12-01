@@ -23,7 +23,9 @@
 import os
 from pathlib import Path
 
+import numpy as np
 import pytest
+from scipy import sparse
 
 # import time
 
@@ -33,7 +35,7 @@ from ansys.mapdl.core import launch_mapdl
 from ansys.mapdl.core._version import SUPPORTED_ANSYS_VERSIONS
 from ansys.mapdl.core.errors import MapdlExitedError
 from ansys.mapdl.core.launcher import MAPDL_DEFAULT_PORT, get_start_instance
-from ansys.tools.path import find_ansys
+from ansys.tools.path import find_mapdl
 
 # Check if MAPDL is installed
 # NOTE: checks in this order to get the newest installed version
@@ -41,7 +43,7 @@ from ansys.tools.path import find_ansys
 
 valid_rver = SUPPORTED_ANSYS_VERSIONS.keys()
 
-EXEC_FILE, rver = find_ansys()
+EXEC_FILE, rver = find_mapdl()
 if rver:
     rver = int(rver * 10)
     HAS_GRPC = int(rver) >= 211 or ON_CI
@@ -79,8 +81,8 @@ remote server with:
 {os_msg}
 
 If you do have Ansys installed, you may have to patch pymapdl to
-automatically find your Ansys installation.  Email the developer at:
-alexander.kaszynski@ansys.com
+automatically find your Ansys installation.  Email the developers at:
+pyansys.core@ansys.com
 
 """
 
@@ -174,3 +176,23 @@ def cube_solve(cleared, mapdl):
 
     # solve first 10 non-trivial modes
     out = mapdl.modal_analysis(nmode=10, freqb=1)
+
+
+@pytest.fixture(scope="function")
+def sparse_asym_mat():
+    return sparse.random(5000, 5000, density=0.05, format="csr")
+
+
+@pytest.fixture(scope="function")
+def sparse_sym_mat(sparse_asym_mat):
+    return sparse_asym_mat + (sparse_asym_mat.T)
+
+
+@pytest.fixture(scope="function")
+def dense_asym_mat():
+    return np.random.rand(1000, 1000)
+
+
+@pytest.fixture(scope="function")
+def dense_sym_mat(dense_asym_mat):
+    return dense_asym_mat + (dense_asym_mat.T)
