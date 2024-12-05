@@ -1,0 +1,6 @@
+copy
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMathObj.copy

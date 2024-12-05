@@ -1,0 +1,1318 @@
+[
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.mass",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.mass.html#mass",
+        "title": "mass",
+        "section": "mass",
+        "text": "Load the mass matrix from a FULL file.\nNumPy data type to store the matrix as. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nThis parameter is only applicable if asarray=True.\nAnsMath matrix name. The default is None, in which case a\nname is automatically generated.\nName of the file to read the matrix from. The default is \"file.full\".\nWhether to return a SciPy array rather than an AnsMath matrix.\nThe default is False.\nAnsMath matrix or SciPy sparse matrix, depending on the value for\nthe asarray parameter.\nConvert to a SciPy array."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.svd",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.svd.html#svd",
+        "title": "svd",
+        "section": "svd",
+        "text": "Apply an SVD algorithm on a matrix.\nThe SVD algorithm is only applicable to dense matrices.\nColumns that are linearly dependent on others are removed,\nleaving the independent or basis vectors. The matrix is\nresized according to the new size determined by the SVD algorithm.\nFor the SVD algorithm, the singular value decomposition of an\ninput matrix is a factorization of the form:\nM = U*SIGMA*V.T\nFor more information, see Singular Value Decomposition.\nArray to compress.\nNumerical threshold value for managing the compression.\nThe default is is 1E-7.\nName of the vector for storing the SIGMA values.\nName of the vector for storing the values from v.\nSee the preceding equation.\nApply the SVD algorithm on an existing dense rectangular matrix, using\nthe default threshold. The matrix is modified in-place."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.size",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.size.html#size",
+        "title": "size",
+        "section": "size",
+        "text": "Number of items in this vector."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.get_vec",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.get_vec.html#get_vec",
+        "title": "get_vec",
+        "section": "get_vec",
+        "text": "Load a vector from a FULL file.\nNumPy data type to store the vector as. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nAnsMath vector name. The default is None, in which case a\nname is automatically generated.\nName of the file to read the vector from. The default is \"file.full\".\nVector ID to load. If loading from a \"*.full\" file,\nthe vector ID can be one of the following:\n\"RHS\": Load vector\n\"GVEC\": Constraint equation constant terms\n\"BACK\": Nodal mapping vector (internal to user)\nIf this vector ID is used, the default dtype is np.int32.\n\"FORWARD\" - Nodal mapping vector (user to internal).\nIf this vector ID is used, the default dtype is np.int32.\nWhether to return a NumPy array rather than an AnsMath vector.\nThe default is False.\nAnsMath vector or NumPy array vector, depending on the value for\nthe asarray parameter."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj.norm",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.norm.html#norm",
+        "title": "norm",
+        "section": "norm",
+        "text": "Return the norm of the AnsMath object.\nMathematical norm to use. The default is 'NRM2'. Options are:\n'NRM2': L2 (Euclidean or SRSS) norm.\n'NRM1': L1 (absolute sum) norm (vectors only).\n'NRMINF': Maximum norm.\nNorm of the matrix or the one or more vectors."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.ncol",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.ncol.html#ncol",
+        "title": "ncol",
+        "section": "ncol",
+        "text": "Number of rows in the matrix."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.html#ansmath",
+        "title": "AnsMath",
+        "section": "AnsMath",
+        "text": "Provides the common class for abstract math objects.\nCreate an instance.\nAdd vectors.\nMultiply matrices (not yet available).\nAnsMath.add(obj1, obj2)\nAdd two AnsMath vectors or matrices.\nAnsMath.damp([dtype, name, fname, asarray])\nLoad the damping matrix from a FULL file.\nAnsMath.dot(vec_a, vec_b)\nMultiply two AnsMath vectors.\nAnsMath.eigs(nev, k[, m, c, phi, algo, ...])\nSolve an eigenproblem.\nAnsMath.factorize(mat[, algo, inplace])\nFactorize a matrix.\nAnsMath.free([mat])\nDelete AnsMath objects.\nAnsMath.get_vec([dtype, name, fname, ...])\nLoad a vector from a FULL file.\nAnsMath.load_matrix_from_file([dtype, name, ...])\nImport a matrix from an existing FULL file.\nAnsMath.mass([dtype, name, fname, asarray])\nLoad the mass matrix from a FULL file.\nAnsMath.mat([nrow, ncol, dtype, init, name, ...])\nCreate a matrix.\nAnsMath.matrix(matrix[, name, triu])\nSend a SciPy matrix or NumPy array to MAPDL.\nAnsMath.mgs(mat[, thresh])\nApply the Modified Gram-Schmidt (MGS) algorithm to a matrix.\nAnsMath.norm(obj[, order])\nReturn the norm of an AnsMath object.\nAnsMath.ones(nrow[, ncol, dtype, name, asarray])\nCreate a vector or a matrix where all values are ones.\nAnsMath.rand(nrow[, ncol, dtype, name, asarray])\nCreate a vector or a matrix where all values are random.\nAnsMath.rhs([dtype, name, fname, asarray])\nReturn the load vector from a FULL file.\nAnsMath.set_vec(data[, name])\nPush a NumPy array or a Python list to the MAPDL memory workspace.\nAnsMath.sparse(mat[, thresh])\nSparsify an existing matrix based on a threshold value.\nAnsMath.status()\nPrint the status of all AnsMath objects.\nAnsMath.stiff([dtype, name, fname, asarray])\nLoad the stiffness matrix from a FULL file.\nAnsMath.subtract(obj1, obj2)\nSubtract two AnsMath vectors or matrices.\nAnsMath.svd(mat[, thresh, sig, v])\nApply an SVD algorithm on a matrix.\nAnsMath.vec([size, dtype, init, name, asarray])\nCreate a vector.\nAnsMath.zeros(nrow[, ncol, dtype, name, asarray])\nCreate a vector or a matrix where all values are zeros."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.html#ansvec",
+        "title": "AnsVec",
+        "section": "AnsVec",
+        "text": "Provides the AnsMath vector objects.\nAnsVec.asarray([dtype])\nReturn the vector as a NumPy array.\nAnsVec.axpy(obj, val1, val2)\nPerform the matrix operation: self= val1*obj + val2*self.\nAnsVec.const(value)\nSet all values of the object to a constant.\nAnsVec.copy()\nGet a copy of the vector.\nAnsVec.dot(vec)\nMultiply the AnsMath vector by another AnsMath vector.\nAnsVec.kron(obj)\nCalculates the Kronecker product of two matrices/vectors\nAnsVec.norm([nrmtype])\nReturn the norm of the AnsMath object.\nAnsVec.ones()\nSet all values of the object to one.\nAnsVec.rand()\nSet all values of the object to a random number.\nAnsVec.zeros()\nSet all values of the object to zero.\nAnsVec.size\nNumber of items in this vector."
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#pyansys-math-basic-operations",
+        "title": "PyAnsys Math basic operations",
+        "section": "PyAnsys Math basic operations",
+        "text": "This tutorial shows how you can use PyAnsys Math for basic\noperations on AnsMath vectors and matrices in the APDL memory\nworkspace.\nPerform required imports.\nCreate two AnsMath vectors of size 5. The \\vec{v} method is initialized with\nones, and the \\vec{w} is filled with random values.\nPlot the created vectors.\nLike NumPy vectors, AnsMath vectors can use most of the\nstandard operators, such as +, -, +=, -=,\nand *=.\nHere this form is used: \\vec{z}=\\vec{v}+\\vec{w}\nCompute \\|z\\|_2. (The default norm is nrm2. Note that you\ncan use .norm('nrm1') or .norm('nrminf') for different normals.\nFor more information, see help(z.norm).\nAlternatively you can use methods, following the NumPy\nstandards. Available methods are:\nmm.add()\nmm.subtract()\nmm.dot()\nEquivalent operator for addition:\nz = v + w\nEquivalent operator for subtraction:\nz = v - w\nEquivalent dot operation for the product of two vectors:\nPerform in-place addition.\nPerform in-place multiplication.\nPerform another in-place multiplication.\nAllocate two dense matrices with random values.\nAdd these 2 dense matrices and then scale the result matrix.\nTranspose a matrix.\nAs for vectors, methods are available as an alternative to operators.\nCompute a matrix vector multiplication.\nAnsMath matrices can be identified by printing, viewing their types, or\nusing the __repr__ method by simply typing out the variable.\nHere is an example with an AnsMath matrix.\nHere is an example with an AnsMath vector.\nRegardless of the underlying AnsMath object type, you are generally\nable to perform most NumPy or SciPy operations on these arrays. You\ncan do this in one of two ways.\nYou can convert a matrix to a NumPy array.\nAlternatively, you can use NumPy to compute the maximum of the array.\nThis works because PyAnsys Math copies over the matrix to the local\nPython memory and then computes the maximum using NumPy.\nWhile this works for most NumPy operations, keep in mind that\noperations supported within PyAnsys Math (such as adding or\nmultiplying arrays) compute much faster because the data is not copied.\nStop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.558 seconds)\nDownload Jupyter notebook: basic_operations.ipynb\nDownload Python source code: basic_operations.py\nDownload zipped: basic_operations.zip\nGallery generated by Sphinx-Gallery\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()\nv = mm.ones(2)\nw = mm.rand(2)\nprint(v)\nprint(w)\nSPFKEP :\n Size : 2\n  1.000e+00   1.000e+00\nJNYLAR :\n Size : 2\n  4.170e-01   9.972e-01\norigin = np.array([[0, 0], [0, 0]])\nplt.title(\"Vectors V and W\")\nplt.quiver(*origin, v, w, angles=\"xy\", scale_units=\"xy\", scale=1, color=[\"orange\", \"gray\"])\nplt.xlim(-1.5, 1.5)\nplt.ylim(-1.5, 1.5)\nplt.show()\nz = v + w\nz.norm()\n2.448815734735383\nz = mm.add(v, w)\nz.norm()\n2.448815734735383\nz = mm.subtract(v, w)\nprint(z)\nZXGAIX :\n Size : 2\n  5.830e-01   2.815e-03\nvw = mm.dot(v, w)\nprint(\"Dot product :\", str(vw))\nDot product : 1.4142068068031222\nv += v\nprint(v)\nSPFKEP :\n Size : 2\n  2.000e+00   2.000e+00\nv *= 2\nprint(v)\nSPFKEP :\n Size : 2\n  4.000e+00   4.000e+00\nv /= 2.0\nprint(v)\nSPFKEP :\n Size : 2\n  2.000e+00   2.000e+00\nm1 = mm.rand(4, 5)\nm2 = mm.ones(4, 5)\nm1, m2\n(AnsMath dense matrix (4, 5, AnsMath dense matrix (4, 5)\nm3 = m1 + m2\nprint(m3)\n\nm3 *= 2\nprint(m3)\nLKGFJC:\n [1,1]: 1.417e+00 [1,2]: 1.000e+00 [1,3]: 1.147e+00 [1,4]: 1.186e+00 [1,5]: 1.397e+00\n [2,1]: 1.997e+00 [2,2]: 1.128e+00 [2,3]: 1.236e+00 [2,4]: 1.388e+00 [2,5]: 1.936e+00\n [3,1]: 1.720e+00 [3,2]: 1.302e+00 [3,3]: 1.092e+00 [3,4]: 1.346e+00 [3,5]: 1.539e+00\n [4,1]: 1.933e+00 [4,2]: 1.999e+00 [4,3]: 1.397e+00 [4,4]: 1.670e+00 [4,5]: 1.846e+00\nLKGFJC:\n [1,1]: 2.834e+00 [1,2]: 2.000e+00 [1,3]: 2.294e+00 [1,4]: 2.373e+00 [1,5]: 2.794e+00\n [2,1]: 3.994e+00 [2,2]: 2.256e+00 [2,3]: 2.472e+00 [2,4]: 2.776e+00 [2,5]: 3.871e+00\n [3,1]: 3.441e+00 [3,2]: 2.605e+00 [3,3]: 2.185e+00 [3,4]: 2.691e+00 [3,5]: 3.078e+00\n [4,1]: 3.865e+00 [4,2]: 3.998e+00 [4,3]: 2.793e+00 [4,4]: 3.339e+00 [4,5]: 3.693e+00\nm4 = m3.T\nprint(m4)\nUGYKWV:\n [1,1]: 2.834e+00 [1,2]: 3.994e+00 [1,3]: 3.441e+00 [1,4]: 3.865e+00\n [2,1]: 2.000e+00 [2,2]: 2.256e+00 [2,3]: 2.605e+00 [2,4]: 3.998e+00\n [3,1]: 2.294e+00 [3,2]: 2.472e+00 [3,3]: 2.185e+00 [3,4]: 2.793e+00\n [4,1]: 2.373e+00 [4,2]: 2.776e+00 [4,3]: 2.691e+00 [4,4]: 3.339e+00\n [5,1]: 2.794e+00 [5,2]: 3.871e+00 [5,3]: 3.078e+00 [5,4]: 3.693e+00\nm3 = mm.add(m1, m2)\nprint(m3)\nAQPSEI:\n [1,1]: 1.417e+00 [1,2]: 1.000e+00 [1,3]: 1.147e+00 [1,4]: 1.186e+00 [1,5]: 1.397e+00\n [2,1]: 1.997e+00 [2,2]: 1.128e+00 [2,3]: 1.236e+00 [2,4]: 1.388e+00 [2,5]: 1.936e+00\n [3,1]: 1.720e+00 [3,2]: 1.302e+00 [3,3]: 1.092e+00 [3,4]: 1.346e+00 [3,5]: 1.539e+00\n [4,1]: 1.933e+00 [4,2]: 1.999e+00 [4,3]: 1.397e+00 [4,4]: 1.670e+00 [4,5]: 1.846e+00\nmw = m3.dot(m4)\nprint(mw)\nQLOFMT:\n [1,1]: 1.536e+01 [1,2]: 1.945e+01 [1,3]: 1.748e+01 [1,4]: 2.180e+01\n [2,1]: 1.945e+01 [2,2]: 2.492e+01 [2,3]: 2.220e+01 [2,4]: 2.746e+01\n [3,1]: 1.748e+01 [3,2]: 2.220e+01 [3,3]: 2.005e+01 [3,4]: 2.508e+01\n [4,1]: 2.180e+01 [4,2]: 2.746e+01 [4,3]: 2.508e+01 [4,4]: 3.176e+01\ntype(m1)\nprint(m1)\nm1\nDSDZUU:\n [1,1]: 4.170e-01 [1,2]: 1.144e-04 [1,3]: 1.468e-01 [1,4]: 1.863e-01 [1,5]: 3.968e-01\n [2,1]: 9.972e-01 [2,2]: 1.281e-01 [2,3]: 2.361e-01 [2,4]: 3.879e-01 [2,5]: 9.355e-01\n [3,1]: 7.203e-01 [3,2]: 3.023e-01 [3,3]: 9.234e-02 [3,4]: 3.456e-01 [3,5]: 5.388e-01\n [4,1]: 9.326e-01 [4,2]: 9.990e-01 [4,3]: 3.966e-01 [4,4]: 6.697e-01 [4,5]: 8.463e-01\n\nAnsMath dense matrix (4, 5\ntype(w)\nprint(w)\nw\nJNYLAR :\n Size : 2\n  4.170e-01   9.972e-01\n\nAnsMath vector size 2\napdl_mat = mm.rand(5, 5)\nnp_mat = apdl_mat.asarray()\nprint(np_mat)\n[[4.17021999e-01 1.28124448e-01 9.23385957e-02 6.69746040e-01\n  4.19194519e-01]\n [9.97184808e-01 3.02332568e-01 3.96580726e-01 3.96767469e-01\n  3.13273513e-01]\n [7.20324489e-01 9.99040516e-01 1.86260211e-01 9.35539073e-01\n  6.85219501e-01]\n [9.32557361e-01 1.46755893e-01 3.87910740e-01 5.38816732e-01\n  5.24548163e-01]\n [1.14381197e-04 2.36088976e-01 3.45560725e-01 8.46310918e-01\n  2.04452249e-01]]\nprint(np.max(apdl_mat))\n0.9990405155112967\napdl_arr = mm.rand(5, 5)\nnp_array = apdl_mat.asarray()\nprint(np.allclose(apdl_mat, np_array))\nTrue\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#perform-required-imports-and-start-pyansys",
+        "title": "PyAnsys Math basic operations > Perform required imports and start PyAnsys",
+        "section": "Perform required imports and start PyAnsys",
+        "text": "Perform required imports.\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()"
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#create-and-manipulate-vectors",
+        "title": "PyAnsys Math basic operations > Create and manipulate vectors",
+        "section": "Create and manipulate vectors",
+        "text": "Create two AnsMath vectors of size 5. The \\vec{v} method is initialized with\nones, and the \\vec{w} is filled with random values.\nv = mm.ones(2)\nw = mm.rand(2)\nprint(v)\nprint(w)\nSPFKEP :\n Size : 2\n  1.000e+00   1.000e+00\nJNYLAR :\n Size : 2\n  4.170e-01   9.972e-01"
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#plot-vectors",
+        "title": "PyAnsys Math basic operations > Plot vectors",
+        "section": "Plot vectors",
+        "text": "Plot the created vectors.\norigin = np.array([[0, 0], [0, 0]])\nplt.title(\"Vectors V and W\")\nplt.quiver(*origin, v, w, angles=\"xy\", scale_units=\"xy\", scale=1, color=[\"orange\", \"gray\"])\nplt.xlim(-1.5, 1.5)\nplt.ylim(-1.5, 1.5)\nplt.show()"
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#use-operators-on-vectors",
+        "title": "PyAnsys Math basic operations > Use operators on vectors",
+        "section": "Use operators on vectors",
+        "text": "Like NumPy vectors, AnsMath vectors can use most of the\nstandard operators, such as +, -, +=, -=,\nand *=.\nHere this form is used: \\vec{z}=\\vec{v}+\\vec{w}\nCompute \\|z\\|_2. (The default norm is nrm2. Note that you\ncan use .norm('nrm1') or .norm('nrminf') for different normals.\nFor more information, see help(z.norm).\nz = v + w\nz.norm()\n2.448815734735383"
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#methods",
+        "title": "PyAnsys Math basic operations > Methods",
+        "section": "Methods",
+        "text": "Alternatively you can use methods, following the NumPy\nstandards. Available methods are:\nmm.add()\nmm.subtract()\nmm.dot()\nEquivalent operator for addition:\nz = v + w\nEquivalent operator for subtraction:\nz = v - w\nEquivalent dot operation for the product of two vectors:\nz = mm.add(v, w)\nz.norm()\n2.448815734735383\nz = mm.subtract(v, w)\nprint(z)\nZXGAIX :\n Size : 2\n  5.830e-01   2.815e-03\nvw = mm.dot(v, w)\nprint(\"Dot product :\", str(vw))\nDot product : 1.4142068068031222"
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#perform-in-place-operations-without-copying-vectors",
+        "title": "PyAnsys Math basic operations > Perform in-place operations (without copying vectors)",
+        "section": "Perform in-place operations (without copying vectors)",
+        "text": "Perform in-place addition.\nPerform in-place multiplication.\nPerform another in-place multiplication.\nv += v\nprint(v)\nSPFKEP :\n Size : 2\n  2.000e+00   2.000e+00\nv *= 2\nprint(v)\nSPFKEP :\n Size : 2\n  4.000e+00   4.000e+00\nv /= 2.0\nprint(v)\nSPFKEP :\n Size : 2\n  2.000e+00   2.000e+00"
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#working-with-dense-matrices",
+        "title": "PyAnsys Math basic operations > Working with dense matrices",
+        "section": "Working with dense matrices",
+        "text": "Allocate two dense matrices with random values.\nAdd these 2 dense matrices and then scale the result matrix.\nTranspose a matrix.\nAs for vectors, methods are available as an alternative to operators.\nCompute a matrix vector multiplication.\nAnsMath matrices can be identified by printing, viewing their types, or\nusing the __repr__ method by simply typing out the variable.\nHere is an example with an AnsMath matrix.\nHere is an example with an AnsMath vector.\nm1 = mm.rand(4, 5)\nm2 = mm.ones(4, 5)\nm1, m2\n(AnsMath dense matrix (4, 5, AnsMath dense matrix (4, 5)\nm3 = m1 + m2\nprint(m3)\n\nm3 *= 2\nprint(m3)\nLKGFJC:\n [1,1]: 1.417e+00 [1,2]: 1.000e+00 [1,3]: 1.147e+00 [1,4]: 1.186e+00 [1,5]: 1.397e+00\n [2,1]: 1.997e+00 [2,2]: 1.128e+00 [2,3]: 1.236e+00 [2,4]: 1.388e+00 [2,5]: 1.936e+00\n [3,1]: 1.720e+00 [3,2]: 1.302e+00 [3,3]: 1.092e+00 [3,4]: 1.346e+00 [3,5]: 1.539e+00\n [4,1]: 1.933e+00 [4,2]: 1.999e+00 [4,3]: 1.397e+00 [4,4]: 1.670e+00 [4,5]: 1.846e+00\nLKGFJC:\n [1,1]: 2.834e+00 [1,2]: 2.000e+00 [1,3]: 2.294e+00 [1,4]: 2.373e+00 [1,5]: 2.794e+00\n [2,1]: 3.994e+00 [2,2]: 2.256e+00 [2,3]: 2.472e+00 [2,4]: 2.776e+00 [2,5]: 3.871e+00\n [3,1]: 3.441e+00 [3,2]: 2.605e+00 [3,3]: 2.185e+00 [3,4]: 2.691e+00 [3,5]: 3.078e+00\n [4,1]: 3.865e+00 [4,2]: 3.998e+00 [4,3]: 2.793e+00 [4,4]: 3.339e+00 [4,5]: 3.693e+00\nm4 = m3.T\nprint(m4)\nUGYKWV:\n [1,1]: 2.834e+00 [1,2]: 3.994e+00 [1,3]: 3.441e+00 [1,4]: 3.865e+00\n [2,1]: 2.000e+00 [2,2]: 2.256e+00 [2,3]: 2.605e+00 [2,4]: 3.998e+00\n [3,1]: 2.294e+00 [3,2]: 2.472e+00 [3,3]: 2.185e+00 [3,4]: 2.793e+00\n [4,1]: 2.373e+00 [4,2]: 2.776e+00 [4,3]: 2.691e+00 [4,4]: 3.339e+00\n [5,1]: 2.794e+00 [5,2]: 3.871e+00 [5,3]: 3.078e+00 [5,4]: 3.693e+00\nm3 = mm.add(m1, m2)\nprint(m3)\nAQPSEI:\n [1,1]: 1.417e+00 [1,2]: 1.000e+00 [1,3]: 1.147e+00 [1,4]: 1.186e+00 [1,5]: 1.397e+00\n [2,1]: 1.997e+00 [2,2]: 1.128e+00 [2,3]: 1.236e+00 [2,4]: 1.388e+00 [2,5]: 1.936e+00\n [3,1]: 1.720e+00 [3,2]: 1.302e+00 [3,3]: 1.092e+00 [3,4]: 1.346e+00 [3,5]: 1.539e+00\n [4,1]: 1.933e+00 [4,2]: 1.999e+00 [4,3]: 1.397e+00 [4,4]: 1.670e+00 [4,5]: 1.846e+00\nmw = m3.dot(m4)\nprint(mw)\nQLOFMT:\n [1,1]: 1.536e+01 [1,2]: 1.945e+01 [1,3]: 1.748e+01 [1,4]: 2.180e+01\n [2,1]: 1.945e+01 [2,2]: 2.492e+01 [2,3]: 2.220e+01 [2,4]: 2.746e+01\n [3,1]: 1.748e+01 [3,2]: 2.220e+01 [3,3]: 2.005e+01 [3,4]: 2.508e+01\n [4,1]: 2.180e+01 [4,2]: 2.746e+01 [4,3]: 2.508e+01 [4,4]: 3.176e+01\ntype(m1)\nprint(m1)\nm1\nDSDZUU:\n [1,1]: 4.170e-01 [1,2]: 1.144e-04 [1,3]: 1.468e-01 [1,4]: 1.863e-01 [1,5]: 3.968e-01\n [2,1]: 9.972e-01 [2,2]: 1.281e-01 [2,3]: 2.361e-01 [2,4]: 3.879e-01 [2,5]: 9.355e-01\n [3,1]: 7.203e-01 [3,2]: 3.023e-01 [3,3]: 9.234e-02 [3,4]: 3.456e-01 [3,5]: 5.388e-01\n [4,1]: 9.326e-01 [4,2]: 9.990e-01 [4,3]: 3.966e-01 [4,4]: 6.697e-01 [4,5]: 8.463e-01\n\nAnsMath dense matrix (4, 5\ntype(w)\nprint(w)\nw\nJNYLAR :\n Size : 2\n  4.170e-01   9.972e-01\n\nAnsMath vector size 2"
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#use-numpy-methods-on-ansmath-objects",
+        "title": "PyAnsys Math basic operations > Use NumPy methods on AnsMath objects",
+        "section": "Use NumPy methods on AnsMath objects",
+        "text": "Regardless of the underlying AnsMath object type, you are generally\nable to perform most NumPy or SciPy operations on these arrays. You\ncan do this in one of two ways.\nYou can convert a matrix to a NumPy array.\nAlternatively, you can use NumPy to compute the maximum of the array.\nThis works because PyAnsys Math copies over the matrix to the local\nPython memory and then computes the maximum using NumPy.\nWhile this works for most NumPy operations, keep in mind that\noperations supported within PyAnsys Math (such as adding or\nmultiplying arrays) compute much faster because the data is not copied.\napdl_mat = mm.rand(5, 5)\nnp_mat = apdl_mat.asarray()\nprint(np_mat)\n[[4.17021999e-01 1.28124448e-01 9.23385957e-02 6.69746040e-01\n  4.19194519e-01]\n [9.97184808e-01 3.02332568e-01 3.96580726e-01 3.96767469e-01\n  3.13273513e-01]\n [7.20324489e-01 9.99040516e-01 1.86260211e-01 9.35539073e-01\n  6.85219501e-01]\n [9.32557361e-01 1.46755893e-01 3.87910740e-01 5.38816732e-01\n  5.24548163e-01]\n [1.14381197e-04 2.36088976e-01 3.45560725e-01 8.46310918e-01\n  2.04452249e-01]]\nprint(np.max(apdl_mat))\n0.9990405155112967\napdl_arr = mm.rand(5, 5)\nnp_array = apdl_mat.asarray()\nprint(np.allclose(apdl_mat, np_array))\nTrue"
+    },
+    {
+        "objectID": "examples/basic_operations",
+        "href": "examples/basic_operations.html#stop-pyansys-math",
+        "title": "PyAnsys Math basic operations > Stop PyAnsys Math",
+        "section": "Stop PyAnsys Math",
+        "text": "Stop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.558 seconds)\nDownload Jupyter notebook: basic_operations.ipynb\nDownload Python source code: basic_operations.py\nDownload zipped: basic_operations.zip\nGallery generated by Sphinx-Gallery\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.sparse",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.sparse.html#sparse",
+        "title": "sparse",
+        "section": "sparse",
+        "text": "Sparsify an existing matrix based on a threshold value.\nDense matrix to convert to a sparse matrix.\nNumerical threshold value for sparsifying. The default\nvalue is 1E-16."
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#use-pyansys-math-to-solve-eigenproblems",
+        "title": "Use PyAnsys Math to solve eigenproblems",
+        "section": "Use PyAnsys Math to solve eigenproblems",
+        "text": "This example uses a verification manual input file, but you can use\nyour own sparse or dense matrices.\nPerform required imports.\nRun the input file from Verification Manual 153 and then\nget the stiff (k) and mass (m) matrices from the FULL file.\nDisplay size of the k and m matrices.\nAllocate an array to store the eigenshapes, where nev` is the number\nof eigenvalues requested,\nPerform the modal analysis.\nThe algorithm is automatically chosen with respect to the properties\nof the matrices (such as scalar, storage, or symmetry).\nPrint the vector of eigenfrequencies.\nCheck the residual error for the first eigenresult:\nR_1=||(K-\\lambda_1.M).\\phi_1||_2\nFirst, compute \\lambda_1 = \\omega_1^2 = (2.\\pi.f_1)^2\nThen get the first eigenshape \\phi_1 and compute both\nK.\\phi_1 and M.\\phi_1.\nNext, compute the ||K.\\phi_1||_2 quantity and normalize the\nresidual value.\nAdd these two vectors, using the \\lambda_1 scalar\nfactor, and compute the normalized residual value:\n\\frac{R_1}{||K.\\phi_1||_2}\nCompute this residual for all eigenmodes\nPlot tahe accuracy of the eigenresults.\nStop PyAnsys Math.\nTotal running time of the script: (0 minutes 1.540 seconds)\nDownload Jupyter notebook: eigen_solve.ipynb\nDownload Python source code: eigen_solve.py\nDownload zipped: eigen_solve.zip\nGallery generated by Sphinx-Gallery\nimport time\n\nfrom ansys.mapdl.core.examples import vmfiles\nimport matplotlib.pylab as plt\nimport numpy as np\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()\nout = mm._mapdl.input(vmfiles[\"vm153\"])\nfullfile = mm._mapdl.jobname + \".full\"\nk = mm.stiff(fname=fullfile)\nm = mm.mass(fname=fullfile)\nprint(m.shape)\nprint(k.shape)\n(63, 63)\n(63, 63)\nnev = 10\na = mm.mat(k.nrow, nev)\na\nAnsMath dense matrix (63, 10\nprint(\"Calling PyAnsys Math to solve the eigenproblem...\")\n\nt1 = time.time()\nev = mm.eigs(nev, k, m, phi=a)\nprint(f\"Elapsed time to solve this problem: {time.time() - t1}\")\nCalling PyAnsys Math to solve the eigenproblem...\nElapsed time to solve this problem: 0.03083324432373047\nprint(ev)\nRGGKUU :\n Size : 10\n  2.113e+02   4.865e+02   7.701e+02   1.065e+03   1.375e+03      <       5\n  1.517e+03   1.517e+03   1.709e+03   1.747e+03   1.747e+03      <       10\n# Eigenfrequency (Hz)\ni = 0\nf = ev[0]\nomega = 2 * np.pi * f\nlam = omega * omega\n# shape\nphi = a[0]\n\n# APDL command: *MULT,K,,Phi,,KPhi\nkphi = k.dot(phi)\n\n# APDL command: *MULT,M,,Phi,,MPhi\nmphi = m.dot(phi)\n# APDL command: *MULT,K,,Phi,,KPhi\nkphi = k.dot(phi)\n\n\n# APDL command: *NRM,KPhi,NRM2,KPhiNrm\nkphinrm = kphi.norm()\n# APDL command: *AXPY,-lambda,,MPhi,1,,KPhi\nmphi *= lam\nkphi -= mphi\n\n# Compute residual\nres = kphi.norm() / kphinrm\nprint(res)\n1.9136679485631705e-10\ndef get_res(i):\n    \"\"\"Compute the residual for a given eigenmode.\"\"\"\n    # Eigenfrequency (Hz)\n    f = ev[i]\n\n    # omega = 2.pi.Frequency\n    omega = 2 * np.pi * f\n\n    # lambda = omega^2\n    lam = omega * omega\n\n    # i-th eigenshape\n    phi = a[i]\n\n    # K.Phi\n    kphi = k.dot(phi)\n\n    # M.Phi\n    mphi = m.dot(phi)\n\n    # Normalize scalar value\n    kphinrm = kphi.norm()\n\n    # (K-\\lambda.M).Phi\n    mphi *= lam\n    kphi -= mphi\n\n    # Return the residual\n    return kphi.norm() / kphinrm\n\n\npymath_acc = np.zeros(nev)\n\nfor i in range(nev):\n    f = ev[i]\n    pymath_acc[i] = get_res(i)\n    print(f\"[{i}] : Freq = {f}\\t - Residual = {pymath_acc[i]}\")\n[0] : Freq = 211.2534447881588   - Residual = 1.9136679485631705e-10\n[1] : Freq = 486.50419022721263  - Residual = 1.3403406950622093e-10\n[2] : Freq = 770.104536570519    - Residual = 6.739462952718192e-11\n[3] : Freq = 1064.5432295081987  - Residual = 3.631667679775435e-11\n[4] : Freq = 1374.535393913082   - Residual = 2.426773924787909e-11\n[5] : Freq = 1516.8545419017319  - Residual = 3.024157834515717e-11\n[6] : Freq = 1516.8545419017403  - Residual = 1.2726936409880203e-10\n[7] : Freq = 1708.9655656955329  - Residual = 1.4727869229348076e-09\n[8] : Freq = 1747.1764513661403  - Residual = 2.311798816791578e-09\n[9] : Freq = 1747.176451366141   - Residual = 2.5094281080563296e-09\nfig = plt.figure(figsize=(12, 10))\nax = plt.axes()\nx = np.linspace(1, nev, nev)\nplt.title(\"PyAnsys Math Residual Error (%)\")\nplt.yscale(\"log\")\nplt.ylim([10e-13, 10e-7])\nplt.xlabel(\"Frequency #\")\nplt.ylabel(\"Errors (%)\")\nax.bar(x, pymath_acc, label=\"PyAnsys Math Results\", color=\"orange\")\nplt.show()\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#perform-required-imports-and-start-pyansys",
+        "title": "Use PyAnsys Math to solve eigenproblems > Perform required imports and start PyAnsys",
+        "section": "Perform required imports and start PyAnsys",
+        "text": "Perform required imports.\nimport time\n\nfrom ansys.mapdl.core.examples import vmfiles\nimport matplotlib.pylab as plt\nimport numpy as np\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()"
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#get-matrices",
+        "title": "Use PyAnsys Math to solve eigenproblems > Get matrices",
+        "section": "Get matrices",
+        "text": "Run the input file from Verification Manual 153 and then\nget the stiff (k) and mass (m) matrices from the FULL file.\nout = mm._mapdl.input(vmfiles[\"vm153\"])\nfullfile = mm._mapdl.jobname + \".full\"\nk = mm.stiff(fname=fullfile)\nm = mm.mass(fname=fullfile)"
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#display-size-of-the-matrices",
+        "title": "Use PyAnsys Math to solve eigenproblems > Display size of the matrices",
+        "section": "Display size of the matrices",
+        "text": "Display size of the k and m matrices.\nprint(m.shape)\nprint(k.shape)\n(63, 63)\n(63, 63)"
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#allocate-an-array-to-store-eigenshapes",
+        "title": "Use PyAnsys Math to solve eigenproblems > Allocate an array to store eigenshapes",
+        "section": "Allocate an array to store eigenshapes",
+        "text": "Allocate an array to store the eigenshapes, where nev` is the number\nof eigenvalues requested,\nnev = 10\na = mm.mat(k.nrow, nev)\na\nAnsMath dense matrix (63, 10"
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#perform-modal-analysis",
+        "title": "Use PyAnsys Math to solve eigenproblems > Perform modal analysis",
+        "section": "Perform modal analysis",
+        "text": "Perform the modal analysis.\nThe algorithm is automatically chosen with respect to the properties\nof the matrices (such as scalar, storage, or symmetry).\nprint(\"Calling PyAnsys Math to solve the eigenproblem...\")\n\nt1 = time.time()\nev = mm.eigs(nev, k, m, phi=a)\nprint(f\"Elapsed time to solve this problem: {time.time() - t1}\")\nCalling PyAnsys Math to solve the eigenproblem...\nElapsed time to solve this problem: 0.03083324432373047"
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#print-eigenfrequencies",
+        "title": "Use PyAnsys Math to solve eigenproblems > Print eigenfrequencies",
+        "section": "Print eigenfrequencies",
+        "text": "Print the vector of eigenfrequencies.\nprint(ev)\nRGGKUU :\n Size : 10\n  2.113e+02   4.865e+02   7.701e+02   1.065e+03   1.375e+03      <       5\n  1.517e+03   1.517e+03   1.709e+03   1.747e+03   1.747e+03      <       10"
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#verify-the-accuracy-of-eigenresults",
+        "title": "Use PyAnsys Math to solve eigenproblems > Verify the accuracy of eigenresults",
+        "section": "Verify the accuracy of eigenresults",
+        "text": "Check the residual error for the first eigenresult:\nR_1=||(K-\\lambda_1.M).\\phi_1||_2\nFirst, compute \\lambda_1 = \\omega_1^2 = (2.\\pi.f_1)^2\nThen get the first eigenshape \\phi_1 and compute both\nK.\\phi_1 and M.\\phi_1.\nNext, compute the ||K.\\phi_1||_2 quantity and normalize the\nresidual value.\nAdd these two vectors, using the \\lambda_1 scalar\nfactor, and compute the normalized residual value:\n\\frac{R_1}{||K.\\phi_1||_2}\nCompute this residual for all eigenmodes\n# Eigenfrequency (Hz)\ni = 0\nf = ev[0]\nomega = 2 * np.pi * f\nlam = omega * omega\n# shape\nphi = a[0]\n\n# APDL command: *MULT,K,,Phi,,KPhi\nkphi = k.dot(phi)\n\n# APDL command: *MULT,M,,Phi,,MPhi\nmphi = m.dot(phi)\n# APDL command: *MULT,K,,Phi,,KPhi\nkphi = k.dot(phi)\n\n\n# APDL command: *NRM,KPhi,NRM2,KPhiNrm\nkphinrm = kphi.norm()\n# APDL command: *AXPY,-lambda,,MPhi,1,,KPhi\nmphi *= lam\nkphi -= mphi\n\n# Compute residual\nres = kphi.norm() / kphinrm\nprint(res)\n1.9136679485631705e-10\ndef get_res(i):\n    \"\"\"Compute the residual for a given eigenmode.\"\"\"\n    # Eigenfrequency (Hz)\n    f = ev[i]\n\n    # omega = 2.pi.Frequency\n    omega = 2 * np.pi * f\n\n    # lambda = omega^2\n    lam = omega * omega\n\n    # i-th eigenshape\n    phi = a[i]\n\n    # K.Phi\n    kphi = k.dot(phi)\n\n    # M.Phi\n    mphi = m.dot(phi)\n\n    # Normalize scalar value\n    kphinrm = kphi.norm()\n\n    # (K-\\lambda.M).Phi\n    mphi *= lam\n    kphi -= mphi\n\n    # Return the residual\n    return kphi.norm() / kphinrm\n\n\npymath_acc = np.zeros(nev)\n\nfor i in range(nev):\n    f = ev[i]\n    pymath_acc[i] = get_res(i)\n    print(f\"[{i}] : Freq = {f}\\t - Residual = {pymath_acc[i]}\")\n[0] : Freq = 211.2534447881588   - Residual = 1.9136679485631705e-10\n[1] : Freq = 486.50419022721263  - Residual = 1.3403406950622093e-10\n[2] : Freq = 770.104536570519    - Residual = 6.739462952718192e-11\n[3] : Freq = 1064.5432295081987  - Residual = 3.631667679775435e-11\n[4] : Freq = 1374.535393913082   - Residual = 2.426773924787909e-11\n[5] : Freq = 1516.8545419017319  - Residual = 3.024157834515717e-11\n[6] : Freq = 1516.8545419017403  - Residual = 1.2726936409880203e-10\n[7] : Freq = 1708.9655656955329  - Residual = 1.4727869229348076e-09\n[8] : Freq = 1747.1764513661403  - Residual = 2.311798816791578e-09\n[9] : Freq = 1747.176451366141   - Residual = 2.5094281080563296e-09"
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#plot-accuracy-of-eigenresults",
+        "title": "Use PyAnsys Math to solve eigenproblems > Plot accuracy of eigenresults",
+        "section": "Plot accuracy of eigenresults",
+        "text": "Plot tahe accuracy of the eigenresults.\nfig = plt.figure(figsize=(12, 10))\nax = plt.axes()\nx = np.linspace(1, nev, nev)\nplt.title(\"PyAnsys Math Residual Error (%)\")\nplt.yscale(\"log\")\nplt.ylim([10e-13, 10e-7])\nplt.xlabel(\"Frequency #\")\nplt.ylabel(\"Errors (%)\")\nax.bar(x, pymath_acc, label=\"PyAnsys Math Results\", color=\"orange\")\nplt.show()"
+    },
+    {
+        "objectID": "examples/eigen_solve",
+        "href": "examples/eigen_solve.html#stop-pyansys-math",
+        "title": "Use PyAnsys Math to solve eigenproblems > Stop PyAnsys Math",
+        "section": "Stop PyAnsys Math",
+        "text": "Stop PyAnsys Math.\nTotal running time of the script: (0 minutes 1.540 seconds)\nDownload Jupyter notebook: eigen_solve.ipynb\nDownload Python source code: eigen_solve.py\nDownload zipped: eigen_solve.zip\nGallery generated by Sphinx-Gallery\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.factorize",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.factorize.html#factorize",
+        "title": "factorize",
+        "section": "factorize",
+        "text": "Factorize a matrix.\nPerform the numerical factorization of a linear solver system: (A*x=b).\nBy default, factorization modifies the input matrix mat\nin place. This behavior can be changed using the inplace parameter.\nAnsMath matrix.\nFactorization algorithm. Options are \"LAPACK\" and \"DSP\".\nThe default is \"LAPACK\" for dense matrices and \"DSP\" for\nsparse matrices.\nWhether the factorization is performed on the input matrix\nrather than on a copy of this matrix. Performing factorization on\na copy of this matrix would result in no changes to the input\nmatrix. The default is True.\nFactorize a random matrix and solve a linear system."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.solve",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.solve.html#solve",
+        "title": "solve",
+        "section": "solve",
+        "text": "Solve a linear system.\nAnsMath vector.\nAnsMath vector to place the solution into.\nSolution vector, which is identical to the x parameter if supplied."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.zeros",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.zeros.html#zeros",
+        "title": "zeros",
+        "section": "zeros",
+        "text": "Set all values of the object to zero."
+    },
+    {
+        "objectID": "examples/index",
+        "href": "examples/index.html#examples",
+        "title": "Examples",
+        "section": "Examples",
+        "text": "These examples show how you use the PyAnsys Math library.\nsphx_glr_examples_ansys-math_vs_scipy.py\nsphx_glr_examples_basic_operations.py\nsphx_glr_examples_eigen_solve.py\nsphx_glr_examples_scipy_sparse_matrix.py\nsphx_glr_examples_solve_dense_matrix.py\nsphx_glr_examples_solve_sparse_matrix.py\nsphx_glr_examples_use_numpy_arrays.py\nGallery generated by Sphinx-Gallery"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.rhs",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.rhs.html#rhs",
+        "title": "rhs",
+        "section": "rhs",
+        "text": "Return the load vector from a FULL file.\nNumPy data type to store the vector as. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nAnsMath vector name. The default is None, in which case a\nname is automatically generated.\nName of the file to read the vector from. The default is \"file.full\".\nWhether to return a NumPy array rather than an AnsMath vector.\nThe default is False.\nAnsMath vector or NumPy array vector, depending on the value for\nthe asarray parameter."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.sym",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.sym.html#sym",
+        "title": "sym",
+        "section": "sym",
+        "text": "Return if the matrix is symmetric.\nTrue when this matrix is symmetric."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.ones",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.ones.html#ones",
+        "title": "ones",
+        "section": "ones",
+        "text": "Set all values of the object to one."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.eigs",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.eigs.html#eigs",
+        "title": "eigs",
+        "section": "eigs",
+        "text": "Solve an eigenproblem.\nNumber of eigenvalues to compute.\nAnsMath matrix representing the operation A * x where A is a\nsquare matrix.\nAnsMath matrix representing the operation M * x for the\ngeneralized eigenvalue problem:\nK * x = M * x\nSolve an eigenproblem using the mass and stiffness matrices\nstored from a prior Ansys run."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.size",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.size.html#size",
+        "title": "size",
+        "section": "size",
+        "text": "Number of items in the matrix."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.ones",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.ones.html#ones",
+        "title": "ones",
+        "section": "ones",
+        "text": "Create a vector or a matrix where all values are ones.\nNumber of rows.\nNumber of columns. If a value is specified, a matrix is returned.\nNumPy data type of the object. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nAnsMath object name. The default is None, in which case a\nname is automatically generated.\nWhether to return a NumPy array rather than an AnsMath object.\nThe default is False.\nAnsMath vector, NumPy array vector, AnsMath matrix, or NumPy array matrix,\ndepending on the value for the asarray parameter and if a value for\nthe ncol parameter is specified.\nCreate a vector where all values are ones.\nCreate a matrix where all values are ones."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.subtract",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.subtract.html#subtract",
+        "title": "subtract",
+        "section": "subtract",
+        "text": "Subtract two AnsMath vectors or matrices.\nAnsMath object.\nAnsMath object.\nDifference of the two input vectors or matrices. The type of\nthe output matches the type of the input.\nSubtract two AnsMath vectors."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj.copy",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.copy.html#copy",
+        "title": "copy",
+        "section": "copy",
+        "text": "Get the name of the copy of this object."
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#compute-eigenvalues-using-pyansys-math-and-scipy",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy",
+        "section": "Compute Eigenvalues using PyAnsys Math and SciPy",
+        "text": "This example shows how to perform these tasks:\nExtract the stiffness and mass matrices from an MAPDL model.\nUse PyAnsys Math to compute the first eigenvalues.\nGet these matrices using SciPy to obtain the same\nsolutions using Python resources.\nSee if PyAnsys Math is more accurate and faster than SciPy.\nPerform required imports.\nLoad the input file using MAPDL.\nPlot and mesh using the eplot method.\nSet up a modal analysis and form the K and M matrices.\nMAPDL stores these matrices in a .FULL file.\nRead the sparse matrices using PyAnsys Math.\nSolve the eigenproblme using PyAnsys Math.\nPrint the eigenfrequencies and the accuracy.\nAccuracy : \\frac{||(K-\\lambda.M).\\phi||_2}{||K.\\phi||_2}\nGet the MAPDL sparse matrices into Python memory as SciPy\nmatrices.\nMake the sparse matrices for SciPy unsymmetric because symmetric matrices\nin SciPy are memory inefficient.\nK = K + K^T - diag(K)\nPlot the matrices.\nSolve the eigenproblem.\nConvert lambda values to frequency values:\nfreq = \\frac{\\sqrt(\\lambda)}{2.\\pi}\nCompute the residual error for SciPy.\nErr=\\frac{||(K-\\lambda.M).\\phi||_2}{||K.\\phi||_2}\nPlot residual error to see if PyAnsys Math is more accurate than SciPy.\nPlot elapsed time to see if PyAnsys Math is more accurate than SciPy.\nStop PyAnsys Math.\nTotal running time of the script: (0 minutes 11.988 seconds)\nDownload Jupyter notebook: ansys-math_vs_scipy.ipynb\nDownload Python source code: ansys-math_vs_scipy.py\nDownload zipped: ansys-math_vs_scipy.zip\nGallery generated by Sphinx-Gallery\nimport math\nimport time\n\nfrom ansys.mapdl.core.examples import examples\nimport matplotlib.pylab as plt\nimport numpy as np\nimport scipy\nfrom scipy.sparse.linalg import eigsh\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()\nprint(mm._mapdl.input(examples.wing_model))\n/INPUT FILE= wing.dat  LINE=       0\n\n*** WARNING ***                         CP =       1.383   TIME= 08:45:17\nThe /BATCH command must be the first line of input.  The /BATCH command\nis ignored.\n\n*** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE                  24.1     ***\nAnsys Mechanical Enterprise Academic Student\n01055371  VERSION=LINUX x64     08:45:17  OCT 08, 2024 CP=      1.384\n\n\n\n\n\n         ***** MAPDL ANALYSIS DEFINITION (PREP7) *****\n\n*** WARNING ***                         CP =       1.384   TIME= 08:45:17\nDeactivation of element shape checking is not recommended.\n\n*** WARNING ***                         CP =       1.421   TIME= 08:45:17\nThe mesh of area 1 contains PLANE42 triangles, which are much too stiff\nin bending.  Use quadratic (6- or 8-node) elements if possible.\n\n*** WARNING ***                         CP =       1.433   TIME= 08:45:17\nCLEAR, SELECT, and MESH boundary condition commands are not possible\nafter MODMSH.\n\n\n***** ROUTINE COMPLETED *****  CP =         1.437\nmm._mapdl.eplot()\nprint(mm._mapdl.slashsolu())\nprint(mm._mapdl.antype(antype=\"MODAL\"))\nprint(mm._mapdl.modopt(method=\"LANB\", nmode=\"10\", freqb=\"1.\"))\nprint(mm._mapdl.wrfull(ldstep=\"1\"))\n\n# store the output of the solve command\noutput = mm._mapdl.solve()\n*****  MAPDL SOLUTION ROUTINE  *****\nPERFORM A MODAL ANALYSIS\n  THIS WILL BE A NEW ANALYSIS\nUSE SYM. BLOCK LANCZOS MODE EXTRACTION METHOD\n  EXTRACT    10 MODES\n  SHIFT POINT FOR EIGENVALUE CALCULATION=  1.0000\n  NORMALIZE THE MODE SHAPES TO THE MASS MATRIX\nSTOP SOLUTION AFTER FULL FILE HAS BEEN WRITTEN\n   LOADSTEP =    1 SUBSTEP =    1 EQ. ITER =    1\nmm._mapdl.finish()\nmm.free()\nk = mm.stiff(fname=\"file.full\")\nM = mm.mass(fname=\"file.full\")\nnev = 10\nA = mm.mat(k.nrow, nev)\n\nt1 = time.time()\nev = mm.eigs(nev, k, M, phi=A, fmin=1.0)\nt2 = time.time()\npymath_elapsed_time = t2 - t1\nprint(\"\\nElapsed time to solve this problem : \", pymath_elapsed_time)\nElapsed time to solve this problem :  0.4487159252166748\npymath_acc = np.empty(nev)\n\nfor i in range(nev):\n    f = ev[i]  # Eigenfrequency (Hz)\n    omega = 2 * np.pi * f  # omega = 2.pi.Frequency\n    lam = omega**2  # lambda = omega^2\n\n    phi = A[i]  # i-th eigenshape\n    kphi = k.dot(phi)  # K.Phi\n    mphi = M.dot(phi)  # M.Phi\n\n    kphi_nrm = kphi.norm()  # Normalization scalar value\n\n    mphi *= lam  # (K-\\lambda.M).Phi\n    kphi -= mphi\n\n    pymath_acc[i] = kphi.norm() / kphi_nrm  # compute the residual\n    print(f\"[{i}] : Freq = {f:8.2f} Hz\\t Residual = {pymath_acc[i]:.5}\")\n[0] : Freq =   352.39 Hz         Residual = 7.1398e-09\n[1] : Freq =   385.20 Hz         Residual = 4.4352e-09\n[2] : Freq =   656.78 Hz         Residual = 7.6434e-09\n[3] : Freq =   764.73 Hz         Residual = 1.1473e-08\n[4] : Freq =   825.49 Hz         Residual = 1.4281e-08\n[5] : Freq =  1039.25 Hz         Residual = 1.8512e-08\n[6] : Freq =  1143.60 Hz         Residual = 1.4537e-08\n[7] : Freq =  1258.00 Hz         Residual = 6.6247e-08\n[8] : Freq =  1334.23 Hz         Residual = 2.154e-07\n[9] : Freq =  1352.10 Hz         Residual = 6.4539e-08\npk = k.asarray()\npm = M.asarray()\n\n# get_ipython().run_line_magic('matplotlib', 'inline')\n\nfig, (ax1, ax2) = plt.subplots(1, 2)\nfig.suptitle(\"K and M Matrix profiles\")\nax1.spy(pk, markersize=0.01)\nax1.set_title(\"K Matrix\")\nax2.spy(pm, markersize=0.01)\nax2.set_title(\"M Matrix\")\nplt.show(block=True)\npkd = scipy.sparse.diags(pk.diagonal())\npK = pk + pk.transpose() - pkd\npmd = scipy.sparse.diags(pm.diagonal())\npm = pm + pm.transpose() - pmd\nfig, (ax1, ax2) = plt.subplots(1, 2)\nfig.suptitle(\"K and M Matrix profiles\")\nax1.spy(pk, markersize=0.01)\nax1.set_title(\"K Matrix\")\nax2.spy(pm, markersize=0.01)\nax2.set_title(\"M Matrix\")\nplt.show(block=True)\nt3 = time.time()\nvals, vecs = eigsh(A=pK, M=pm, k=10, sigma=1, which=\"LA\")\nt4 = time.time()\nscipy_elapsed_time = t4 - t3\nprint(\"\\nElapsed time to solve this problem : \", scipy_elapsed_time)\nElapsed time to solve this problem :  2.208683490753174\nfreqs = np.sqrt(vals) / (2 * math.pi)\nscipy_acc = np.zeros(nev)\n\nfor i in range(nev):\n    lam = vals[i]  # i-th eigenvalue\n    phi = vecs.T[i]  # i-th eigenshape\n\n    kphi = pk * phi.T  # K.Phi\n    mphi = pm * phi.T  # M.Phi\n\n    kphi_nrm = np.linalg.norm(kphi, 2)  # Normalization scalar value\n\n    mphi *= lam  # (K-\\lambda.M).Phi\n    kphi -= mphi\n\n    scipy_acc[i] = 1 - np.linalg.norm(kphi, 2) / kphi_nrm  # compute the residual\n    print(f\"[{i}] : Freq = {freqs[i]:8.2f} Hz\\t Residual = {scipy_acc[i]:.5}\")\n[0] : Freq =   352.39 Hz         Residual = 8.0111e-05\n[1] : Freq =   385.20 Hz         Residual = 0.00010356\n[2] : Freq =   656.78 Hz         Residual = 0.00024284\n[3] : Freq =   764.73 Hz         Residual = 0.00016261\n[4] : Freq =   825.49 Hz         Residual = 0.00038862\n[5] : Freq =  1039.25 Hz         Residual = 0.00057672\n[6] : Freq =  1143.60 Hz         Residual = 0.0025674\n[7] : Freq =  1258.00 Hz         Residual = 0.00033886\n[8] : Freq =  1334.23 Hz         Residual = 0.00046688\n[9] : Freq =  1352.10 Hz         Residual = 0.0011237\nfig = plt.figure(figsize=(12, 10))\nax = plt.axes()\nx = np.linspace(1, 10, 10)\nplt.title(\"Residual Error\")\nplt.yscale(\"log\")\nplt.xlabel(\"Mode\")\nplt.ylabel(\"% Error\")\nax.bar(x, scipy_acc, label=\"SciPy Results\")\nax.bar(x, pymath_acc, label=\"PyAnsys Math Results\")\nplt.legend(loc=\"lower right\")\nplt.show()\nratio = scipy_elapsed_time / pymath_elapsed_time\nprint(f\"PyAnsys Math is {ratio:.3} times faster.\")\nPyAnsys Math is 4.92 times faster.\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#perform-required-imports-and-start-pyansys-math",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Perform required imports and start PyAnsys Math",
+        "section": "Perform required imports and start PyAnsys Math",
+        "text": "Perform required imports.\nimport math\nimport time\n\nfrom ansys.mapdl.core.examples import examples\nimport matplotlib.pylab as plt\nimport numpy as np\nimport scipy\nfrom scipy.sparse.linalg import eigsh\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#load-the-input-file",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Load the input file",
+        "section": "Load the input file",
+        "text": "Load the input file using MAPDL.\nprint(mm._mapdl.input(examples.wing_model))\n/INPUT FILE= wing.dat  LINE=       0\n\n*** WARNING ***                         CP =       1.383   TIME= 08:45:17\nThe /BATCH command must be the first line of input.  The /BATCH command\nis ignored.\n\n*** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE                  24.1     ***\nAnsys Mechanical Enterprise Academic Student\n01055371  VERSION=LINUX x64     08:45:17  OCT 08, 2024 CP=      1.384\n\n\n\n\n\n         ***** MAPDL ANALYSIS DEFINITION (PREP7) *****\n\n*** WARNING ***                         CP =       1.384   TIME= 08:45:17\nDeactivation of element shape checking is not recommended.\n\n*** WARNING ***                         CP =       1.421   TIME= 08:45:17\nThe mesh of area 1 contains PLANE42 triangles, which are much too stiff\nin bending.  Use quadratic (6- or 8-node) elements if possible.\n\n*** WARNING ***                         CP =       1.433   TIME= 08:45:17\nCLEAR, SELECT, and MESH boundary condition commands are not possible\nafter MODMSH.\n\n\n***** ROUTINE COMPLETED *****  CP =         1.437"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#plot-and-mesh",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Plot and mesh",
+        "section": "Plot and mesh",
+        "text": "Plot and mesh using the eplot method.\nmm._mapdl.eplot()"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#set-up-modal-analysis",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Set up modal analysis",
+        "section": "Set up modal analysis",
+        "text": "Set up a modal analysis and form the K and M matrices.\nMAPDL stores these matrices in a .FULL file.\nprint(mm._mapdl.slashsolu())\nprint(mm._mapdl.antype(antype=\"MODAL\"))\nprint(mm._mapdl.modopt(method=\"LANB\", nmode=\"10\", freqb=\"1.\"))\nprint(mm._mapdl.wrfull(ldstep=\"1\"))\n\n# store the output of the solve command\noutput = mm._mapdl.solve()\n*****  MAPDL SOLUTION ROUTINE  *****\nPERFORM A MODAL ANALYSIS\n  THIS WILL BE A NEW ANALYSIS\nUSE SYM. BLOCK LANCZOS MODE EXTRACTION METHOD\n  EXTRACT    10 MODES\n  SHIFT POINT FOR EIGENVALUE CALCULATION=  1.0000\n  NORMALIZE THE MODE SHAPES TO THE MASS MATRIX\nSTOP SOLUTION AFTER FULL FILE HAS BEEN WRITTEN\n   LOADSTEP =    1 SUBSTEP =    1 EQ. ITER =    1"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#read-sparse-matrices",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Read sparse matrices",
+        "section": "Read sparse matrices",
+        "text": "Read the sparse matrices using PyAnsys Math.\nmm._mapdl.finish()\nmm.free()\nk = mm.stiff(fname=\"file.full\")\nM = mm.mass(fname=\"file.full\")"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#solve-eigenproblem",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Solve eigenproblem",
+        "section": "Solve eigenproblem",
+        "text": "Solve the eigenproblme using PyAnsys Math.\nnev = 10\nA = mm.mat(k.nrow, nev)\n\nt1 = time.time()\nev = mm.eigs(nev, k, M, phi=A, fmin=1.0)\nt2 = time.time()\npymath_elapsed_time = t2 - t1\nprint(\"\\nElapsed time to solve this problem : \", pymath_elapsed_time)\nElapsed time to solve this problem :  0.4487159252166748"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#print-eigenfrequencies-and-accuracy",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Print eigenfrequencies and accuracy",
+        "section": "Print eigenfrequencies and accuracy",
+        "text": "Print the eigenfrequencies and the accuracy.\nAccuracy : \\frac{||(K-\\lambda.M).\\phi||_2}{||K.\\phi||_2}\npymath_acc = np.empty(nev)\n\nfor i in range(nev):\n    f = ev[i]  # Eigenfrequency (Hz)\n    omega = 2 * np.pi * f  # omega = 2.pi.Frequency\n    lam = omega**2  # lambda = omega^2\n\n    phi = A[i]  # i-th eigenshape\n    kphi = k.dot(phi)  # K.Phi\n    mphi = M.dot(phi)  # M.Phi\n\n    kphi_nrm = kphi.norm()  # Normalization scalar value\n\n    mphi *= lam  # (K-\\lambda.M).Phi\n    kphi -= mphi\n\n    pymath_acc[i] = kphi.norm() / kphi_nrm  # compute the residual\n    print(f\"[{i}] : Freq = {f:8.2f} Hz\\t Residual = {pymath_acc[i]:.5}\")\n[0] : Freq =   352.39 Hz         Residual = 7.1398e-09\n[1] : Freq =   385.20 Hz         Residual = 4.4352e-09\n[2] : Freq =   656.78 Hz         Residual = 7.6434e-09\n[3] : Freq =   764.73 Hz         Residual = 1.1473e-08\n[4] : Freq =   825.49 Hz         Residual = 1.4281e-08\n[5] : Freq =  1039.25 Hz         Residual = 1.8512e-08\n[6] : Freq =  1143.60 Hz         Residual = 1.4537e-08\n[7] : Freq =  1258.00 Hz         Residual = 6.6247e-08\n[8] : Freq =  1334.23 Hz         Residual = 2.154e-07\n[9] : Freq =  1352.10 Hz         Residual = 6.4539e-08"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#use-scipy-to-solve-the-same-eigenproblem",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Use SciPy to solve the same eigenproblem",
+        "section": "Use SciPy to solve the same eigenproblem",
+        "text": "Get the MAPDL sparse matrices into Python memory as SciPy\nmatrices.\nMake the sparse matrices for SciPy unsymmetric because symmetric matrices\nin SciPy are memory inefficient.\nK = K + K^T - diag(K)\nPlot the matrices.\nSolve the eigenproblem.\nConvert lambda values to frequency values:\nfreq = \\frac{\\sqrt(\\lambda)}{2.\\pi}\nCompute the residual error for SciPy.\nErr=\\frac{||(K-\\lambda.M).\\phi||_2}{||K.\\phi||_2}\npk = k.asarray()\npm = M.asarray()\n\n# get_ipython().run_line_magic('matplotlib', 'inline')\n\nfig, (ax1, ax2) = plt.subplots(1, 2)\nfig.suptitle(\"K and M Matrix profiles\")\nax1.spy(pk, markersize=0.01)\nax1.set_title(\"K Matrix\")\nax2.spy(pm, markersize=0.01)\nax2.set_title(\"M Matrix\")\nplt.show(block=True)\npkd = scipy.sparse.diags(pk.diagonal())\npK = pk + pk.transpose() - pkd\npmd = scipy.sparse.diags(pm.diagonal())\npm = pm + pm.transpose() - pmd\nfig, (ax1, ax2) = plt.subplots(1, 2)\nfig.suptitle(\"K and M Matrix profiles\")\nax1.spy(pk, markersize=0.01)\nax1.set_title(\"K Matrix\")\nax2.spy(pm, markersize=0.01)\nax2.set_title(\"M Matrix\")\nplt.show(block=True)\nt3 = time.time()\nvals, vecs = eigsh(A=pK, M=pm, k=10, sigma=1, which=\"LA\")\nt4 = time.time()\nscipy_elapsed_time = t4 - t3\nprint(\"\\nElapsed time to solve this problem : \", scipy_elapsed_time)\nElapsed time to solve this problem :  2.208683490753174\nfreqs = np.sqrt(vals) / (2 * math.pi)\nscipy_acc = np.zeros(nev)\n\nfor i in range(nev):\n    lam = vals[i]  # i-th eigenvalue\n    phi = vecs.T[i]  # i-th eigenshape\n\n    kphi = pk * phi.T  # K.Phi\n    mphi = pm * phi.T  # M.Phi\n\n    kphi_nrm = np.linalg.norm(kphi, 2)  # Normalization scalar value\n\n    mphi *= lam  # (K-\\lambda.M).Phi\n    kphi -= mphi\n\n    scipy_acc[i] = 1 - np.linalg.norm(kphi, 2) / kphi_nrm  # compute the residual\n    print(f\"[{i}] : Freq = {freqs[i]:8.2f} Hz\\t Residual = {scipy_acc[i]:.5}\")\n[0] : Freq =   352.39 Hz         Residual = 8.0111e-05\n[1] : Freq =   385.20 Hz         Residual = 0.00010356\n[2] : Freq =   656.78 Hz         Residual = 0.00024284\n[3] : Freq =   764.73 Hz         Residual = 0.00016261\n[4] : Freq =   825.49 Hz         Residual = 0.00038862\n[5] : Freq =  1039.25 Hz         Residual = 0.00057672\n[6] : Freq =  1143.60 Hz         Residual = 0.0025674\n[7] : Freq =  1258.00 Hz         Residual = 0.00033886\n[8] : Freq =  1334.23 Hz         Residual = 0.00046688\n[9] : Freq =  1352.10 Hz         Residual = 0.0011237"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#see-if-pyansys-math-is-more-accurate-than-scipy",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > See if PyAnsys Math is more accurate than SciPy",
+        "section": "See if PyAnsys Math is more accurate than SciPy",
+        "text": "Plot residual error to see if PyAnsys Math is more accurate than SciPy.\nfig = plt.figure(figsize=(12, 10))\nax = plt.axes()\nx = np.linspace(1, 10, 10)\nplt.title(\"Residual Error\")\nplt.yscale(\"log\")\nplt.xlabel(\"Mode\")\nplt.ylabel(\"% Error\")\nax.bar(x, scipy_acc, label=\"SciPy Results\")\nax.bar(x, pymath_acc, label=\"PyAnsys Math Results\")\nplt.legend(loc=\"lower right\")\nplt.show()"
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#see-if-pyansys-math-is-faster-than-scipy",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > See if PyAnsys Math is faster than SciPy",
+        "section": "See if PyAnsys Math is faster than SciPy",
+        "text": "Plot elapsed time to see if PyAnsys Math is more accurate than SciPy.\nratio = scipy_elapsed_time / pymath_elapsed_time\nprint(f\"PyAnsys Math is {ratio:.3} times faster.\")\nPyAnsys Math is 4.92 times faster."
+    },
+    {
+        "objectID": "examples/ansys-math_vs_scipy",
+        "href": "examples/ansys-math_vs_scipy.html#stop-pyansys-math",
+        "title": "Compute Eigenvalues using PyAnsys Math and SciPy > Stop PyAnsys Math",
+        "section": "Stop PyAnsys Math",
+        "text": "Stop PyAnsys Math.\nTotal running time of the script: (0 minutes 11.988 seconds)\nDownload Jupyter notebook: ansys-math_vs_scipy.ipynb\nDownload Python source code: ansys-math_vs_scipy.py\nDownload zipped: ansys-math_vs_scipy.zip\nGallery generated by Sphinx-Gallery\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.norm",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.norm.html#norm",
+        "title": "norm",
+        "section": "norm",
+        "text": "Return the norm of the AnsMath object.\nMathematical norm to use. The default is 'NRM2'. Options are:\n'NRM2': L2 (Euclidean or SRSS) norm.\n'NRM1': L1 (absolute sum) norm (vectors only).\n'NRMINF': Maximum norm.\nNorm of the matrix or the one or more vectors."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.ones",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.ones.html#ones",
+        "title": "ones",
+        "section": "ones",
+        "text": "Set all values of the object to one."
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#perform-sparse-factorization-and-solve-operations",
+        "title": "Perform sparse factorization and solve operations",
+        "section": "Perform sparse factorization and solve operations",
+        "text": "Using PyAnsys Math, you can solve linear systems of equations\nbased on sparse or dense matrices.\nRun a MAPDL solve to create a Full file. This code\nuses a model from the official verification manual.\nAfter a solve command, the FULL file contains the assembled stiffness\nmatrix, mass matrix, and load vector.\nList the files in current directory.\nExtract the stiffness matrix from the FULL file in a sparse\nmatrix format. For help on the stiff function, use the\nhelp(mm.stiff) command.\nPrint the dimensions of the sparse matrix.\nCopy the AnsMath sparse matrix to a SciPy CSR matrix. Then, plot the\ngraph of the sparse matrix.\nGet a copy of the k sparse matrix as a NumPy array\nExtract the load vector from the FULL file and print the norm of this\nvector.\nGet a copy of the load vector as a NumPy array.\nFactorize the stiffness matrix using PyAnsys Math.\nSolve the linear system.\nPrint the norm of the solution vector.\nCheck the accuracy of the solution by verifying that\nKX - B = 0.\nGet a summary of all allocated AnsMath objects.\nDelete all AnsMath objects.\nStop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.636 seconds)\nDownload Jupyter notebook: solve_sparse_matrix.ipynb\nDownload Python source code: solve_sparse_matrix.py\nDownload zipped: solve_sparse_matrix.zip\nGallery generated by Sphinx-Gallery\n# Perform required imports and start PyAnsys\n# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n# Perform required imports.\n\nfrom ansys.mapdl.core.examples import vmfiles\nimport matplotlib.pyplot as plt\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a server.\nmm = pymath.AnsMath()\nout = mm._mapdl.input(vmfiles[\"vm152\"])\nmm._mapdl.list_files()\n['SCRATCH', 'TABLE_1', '__tmp_sys_out_zvkmdsittt__', 'anstmp', 'cleanup-ansys-6b4e94231b59-547.sh', 'file.DSP', 'file.emat', 'file.esav', 'file.full', 'file.ldhi', 'file.mlv', 'file.mntr', 'file.mode', 'file.rdb', 'file.rst', 'file.rstp', 'file.stat', 'file0.DSP', 'file0.emat', 'file0.err', 'file0.esav', 'file0.full', 'file0.log', 'file0.mlv', 'file0.mode', 'file0.page', 'file0.r001', 'file0.rst', 'file000.jpg', 'file001.jpg', 'file002.jpg', 'file003.jpg', 'file004.jpg', 'file1.DSP', 'file1.emat', 'file1.err', 'file1.esav', 'file1.full', 'file1.log', 'file1.mlv', 'file1.mode', 'file1.out', 'file1.page', 'file1.r001', 'file1.rst', 'vm152.vrt', 'vm153.vrt']\nfullfile = mm._mapdl.jobname + \".full\"\nk = mm.stiff(fname=fullfile, name=\"K\")\nk\nAnsMath sparse matrix (27, 27)\npk = k.asarray()\nplt.spy(pk, color=\"orange\", markersize=3)\nplt.title(\"AnsMath sparse matrix\")\nplt.show()\nky = k.asarray()\nky\n<Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 77 stored elements and shape (27, 27)>\nb = mm.rhs(fname=fullfile, name=\"B\")\nb.norm()\n0.12181823800246581\nby = b.asarray()\ns = mm.factorize(k)\nx = s.solve(b)\nx.norm()\n7.774533362578086e-06\nkx = k.dot(x)\nkx -= b\nprint(\"Residual error:\", kx.norm() / b.norm())\nResidual error: 3.014095088656435e-16\nmm.status()\nAPDLMATH PARAMETER STATUS-  (      5 PARAMETERS DEFINED)\n\n  Name                   Type            Mem. (MB)       Dims            Workspace\n\n   K                     SMAT            0.001           [27:27]         1\n   B                     VEC             0.000           27              1\n   JWVTFF                VEC             0.000           27              1\n   XSNVPR                VEC             0.000           27              1\n   ZYIOCH                LSENGINE        --              --              1\nmm.free()\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#factorize-and-solve-sparse-linear-systems",
+        "title": "Perform sparse factorization and solve operations > Factorize and solve sparse linear systems",
+        "section": "Factorize and solve sparse linear systems",
+        "text": "Run a MAPDL solve to create a Full file. This code\nuses a model from the official verification manual.\nAfter a solve command, the FULL file contains the assembled stiffness\nmatrix, mass matrix, and load vector.\nout = mm._mapdl.input(vmfiles[\"vm152\"])"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#list-files-in-current-directory",
+        "title": "Perform sparse factorization and solve operations > List files in current directory",
+        "section": "List files in current directory",
+        "text": "List the files in current directory.\nmm._mapdl.list_files()\n['SCRATCH', 'TABLE_1', '__tmp_sys_out_zvkmdsittt__', 'anstmp', 'cleanup-ansys-6b4e94231b59-547.sh', 'file.DSP', 'file.emat', 'file.esav', 'file.full', 'file.ldhi', 'file.mlv', 'file.mntr', 'file.mode', 'file.rdb', 'file.rst', 'file.rstp', 'file.stat', 'file0.DSP', 'file0.emat', 'file0.err', 'file0.esav', 'file0.full', 'file0.log', 'file0.mlv', 'file0.mode', 'file0.page', 'file0.r001', 'file0.rst', 'file000.jpg', 'file001.jpg', 'file002.jpg', 'file003.jpg', 'file004.jpg', 'file1.DSP', 'file1.emat', 'file1.err', 'file1.esav', 'file1.full', 'file1.log', 'file1.mlv', 'file1.mode', 'file1.out', 'file1.page', 'file1.r001', 'file1.rst', 'vm152.vrt', 'vm153.vrt']"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#extract-stiffness-matrix",
+        "title": "Perform sparse factorization and solve operations > Extract stiffness matrix",
+        "section": "Extract stiffness matrix",
+        "text": "Extract the stiffness matrix from the FULL file in a sparse\nmatrix format. For help on the stiff function, use the\nhelp(mm.stiff) command."
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#print-dimensions-of-sparse-matrix",
+        "title": "Perform sparse factorization and solve operations > Print dimensions of sparse matrix",
+        "section": "Print dimensions of sparse matrix",
+        "text": "Print the dimensions of the sparse matrix.\nfullfile = mm._mapdl.jobname + \".full\"\nk = mm.stiff(fname=fullfile, name=\"K\")\nk\nAnsMath sparse matrix (27, 27)"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#copy-ansmath-sparse-matrix-to-scipy-csr-matrix-and-plot",
+        "title": "Perform sparse factorization and solve operations > Copy AnsMath sparse matrix to SciPy CSR matrix and plot",
+        "section": "Copy AnsMath sparse matrix to SciPy CSR matrix and plot",
+        "text": "Copy the AnsMath sparse matrix to a SciPy CSR matrix. Then, plot the\ngraph of the sparse matrix.\npk = k.asarray()\nplt.spy(pk, color=\"orange\", markersize=3)\nplt.title(\"AnsMath sparse matrix\")\nplt.show()"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#get-a-copy-of-sparse-matrix-as-a-numpy-array",
+        "title": "Perform sparse factorization and solve operations > Get a copy of sparse matrix as a NumPy array",
+        "section": "Get a copy of sparse matrix as a NumPy array",
+        "text": "Get a copy of the k sparse matrix as a NumPy array\nky = k.asarray()\nky\n<Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 77 stored elements and shape (27, 27)>"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#extract-load-vector-from-full-file-and-print-norm",
+        "title": "Perform sparse factorization and solve operations > Extract load vector from FULL file and print norm",
+        "section": "Extract load vector from FULL file and print norm",
+        "text": "Extract the load vector from the FULL file and print the norm of this\nvector.\nb = mm.rhs(fname=fullfile, name=\"B\")\nb.norm()\n0.12181823800246581"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#get-a-copy-of-load-vector-as-a-numpy-array",
+        "title": "Perform sparse factorization and solve operations > Get a copy of load vector as a NumPy array",
+        "section": "Get a copy of load vector as a NumPy array",
+        "text": "Get a copy of the load vector as a NumPy array.\nby = b.asarray()"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#factorize-stiffness-matrix",
+        "title": "Perform sparse factorization and solve operations > Factorize stiffness matrix",
+        "section": "Factorize stiffness matrix",
+        "text": "Factorize the stiffness matrix using PyAnsys Math.\ns = mm.factorize(k)"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#solve-linear-system",
+        "title": "Perform sparse factorization and solve operations > Solve linear system",
+        "section": "Solve linear system",
+        "text": "Solve the linear system.\nx = s.solve(b)"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#print-norm-of-solution-vector",
+        "title": "Perform sparse factorization and solve operations > Print norm** of solution vector",
+        "section": "Print norm** of solution vector",
+        "text": "Print the norm of the solution vector.\nx.norm()\n7.774533362578086e-06"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#check-accuracy-of-solution",
+        "title": "Perform sparse factorization and solve operations > Check accuracy of solution",
+        "section": "Check accuracy of solution",
+        "text": "Check the accuracy of the solution by verifying that\nKX - B = 0.\nkx = k.dot(x)\nkx -= b\nprint(\"Residual error:\", kx.norm() / b.norm())\nResidual error: 3.014095088656435e-16"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#get-a-summary-of-allocated-objects",
+        "title": "Perform sparse factorization and solve operations > Get a summary of allocated objects",
+        "section": "Get a summary of allocated objects",
+        "text": "Get a summary of all allocated AnsMath objects.\nmm.status()\nAPDLMATH PARAMETER STATUS-  (      5 PARAMETERS DEFINED)\n\n  Name                   Type            Mem. (MB)       Dims            Workspace\n\n   K                     SMAT            0.001           [27:27]         1\n   B                     VEC             0.000           27              1\n   JWVTFF                VEC             0.000           27              1\n   XSNVPR                VEC             0.000           27              1\n   ZYIOCH                LSENGINE        --              --              1"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#delete-all-ansmath-objects",
+        "title": "Perform sparse factorization and solve operations > Delete all AnsMath objects",
+        "section": "Delete all AnsMath objects",
+        "text": "Delete all AnsMath objects.\nmm.free()"
+    },
+    {
+        "objectID": "examples/solve_sparse_matrix",
+        "href": "examples/solve_sparse_matrix.html#stop-pyansys-math",
+        "title": "Perform sparse factorization and solve operations > Stop PyAnsys Math",
+        "section": "Stop PyAnsys Math",
+        "text": "Stop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.636 seconds)\nDownload Jupyter notebook: solve_sparse_matrix.ipynb\nDownload Python source code: solve_sparse_matrix.py\nDownload zipped: solve_sparse_matrix.zip\nGallery generated by Sphinx-Gallery\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.T",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.T.html#t",
+        "title": "T",
+        "section": "T",
+        "text": "Transposition of an AnsMath matrix."
+    },
+    {
+        "objectID": "api/math",
+        "href": "api/math.html#pyansys-math",
+        "title": "PyAnsys Math",
+        "section": "PyAnsys Math",
+        "text": "AnsMath([mapdl])\nProvides the common class for abstract math objects.\nAnsMathObj(id_[, mapdl, dtype])\nProvides the common class for AnsMath objects.\nAnsVec(id_, mapdl[, dtype, init])\nProvides the AnsMath vector objects.\nAnsMat(id_, mapdl[, type_])\nProvides the AnsMath matrix objects.\nAnsSolver(id_[, mapdl, dtype])\nProvides the AnsMath solver class."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.axpy",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.axpy.html#axpy",
+        "title": "axpy",
+        "section": "axpy",
+        "text": "Perform the matrix operation: self= val1*obj + val2*self.\nAnsMath object.\nRatio applied to the AnsMath object.\nRatio applied to the self object.\nMatrix operation result of self= val1*obj + val2*self."
+    },
+    {
+        "objectID": "api/index",
+        "href": "api/index.html#api-reference",
+        "title": "API reference",
+        "section": "API reference",
+        "text": "This section provides an overview of the public PyAnsys Math classes,\nfunctions, and attributes."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj.axpy",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.axpy.html#axpy",
+        "title": "axpy",
+        "section": "axpy",
+        "text": "Perform the matrix operation: self= val1*obj + val2*self.\nAnsMath object.\nRatio applied to the AnsMath object.\nRatio applied to the self object.\nMatrix operation result of self= val1*obj + val2*self."
+    },
+    {
+        "objectID": "examples/sg_execution_times",
+        "href": "examples/sg_execution_times.html#computation-times",
+        "title": "Computation times",
+        "section": "Computation times",
+        "text": "00:16.062 total execution time for 7 files from examples:\nExample\nTime\nMem (MB)\nsphx_glr_examples_ansys-math_vs_scipy.py (ansys-math_vs_scipy.py)\n00:11.988\n0.0\nsphx_glr_examples_eigen_solve.py (eigen_solve.py)\n00:01.540\n0.0\nsphx_glr_examples_solve_sparse_matrix.py (solve_sparse_matrix.py)\n00:00.636\n0.0\nsphx_glr_examples_scipy_sparse_matrix.py (scipy_sparse_matrix.py)\n00:00.628\n0.0\nsphx_glr_examples_basic_operations.py (basic_operations.py)\n00:00.558\n0.0\nsphx_glr_examples_solve_dense_matrix.py (solve_dense_matrix.py)\n00:00.365\n0.0\nsphx_glr_examples_use_numpy_arrays.py (use_numpy_arrays.py)\n00:00.346\n0.0"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.norm",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.norm.html#norm",
+        "title": "norm",
+        "section": "norm",
+        "text": "Return the norm of the AnsMath object.\nMathematical norm to use. The default is 'NRM2'. Options are:\n'NRM2': L2 (Euclidean or SRSS) norm.\n'NRM1': L1 (absolute sum) norm (vectors only).\n'NRMINF': Maximum norm.\nNorm of the matrix or the one or more vectors."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.axpy",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.axpy.html#axpy",
+        "title": "axpy",
+        "section": "axpy",
+        "text": "Perform the matrix operation: self= val1*obj + val2*self.\nAnsMath object.\nRatio applied to the AnsMath object.\nRatio applied to the self object.\nMatrix operation result of self= val1*obj + val2*self."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.const",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.const.html#const",
+        "title": "const",
+        "section": "const",
+        "text": "Set all values of the object to a constant."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.zeros",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.zeros.html#zeros",
+        "title": "zeros",
+        "section": "zeros",
+        "text": "Create a vector or a matrix where all values are zeros.\nNumber of rows.\nNumber of columns. If a value is specified, a matrix is returned.\nNumPy data type of the object. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nAnsMath object name. The default is None, in which case a\nname is automatically generated.\nWhether to return a NumPy array rather than an AnsMath object.\nThe default is False.\nAnsMath vector, NumPy array vector, AnsMath matrix, or NumPy array matrix,\ndepending on the value for the asarray parameter and if a value for\nthe ncol parameter is specified.\nCreate a vector where all values are zeros.\nCreate a matrix where all values are zeros."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.kron",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.kron.html#kron",
+        "title": "kron",
+        "section": "kron",
+        "text": "Calculates the Kronecker product of two matrices/vectors\nAnsMath object.\nKronecker product between the two matrices/vectors.\nRequires at least MAPDL version 2023R2."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.zeros",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.zeros.html#zeros",
+        "title": "zeros",
+        "section": "zeros",
+        "text": "Set all values of the object to zero."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.copy",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.copy.html#copy",
+        "title": "copy",
+        "section": "copy",
+        "text": "Get the name of the copy of this object."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj.rand",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.rand.html#rand",
+        "title": "rand",
+        "section": "rand",
+        "text": "Set all values of the object to a random number."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.ones",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.ones.html#ones",
+        "title": "ones",
+        "section": "ones",
+        "text": "Set all values of the object to one."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.dot",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.dot.html#dot",
+        "title": "dot",
+        "section": "dot",
+        "text": "Multiply two AnsMath vectors.\nAnsMath vector.\nAnsMath vector.\nProduct of multiplying the two vectors."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.matrix",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.matrix.html#matrix",
+        "title": "matrix",
+        "section": "matrix",
+        "text": "Send a SciPy matrix or NumPy array to MAPDL.\nSciPy matrix or NumPy array to send as a matrix to MAPDL.\nAnsMath matrix name. The default is None, in which case a\nname is automatically generated.\nWhether the matrix is the upper triangular. The default is False,\nwhich means that the matrix is unsymmetric.\nMath matrix.\nGenerate a random sparse matrix.\nTransfer the matrix back to Python."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.set_vec",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.set_vec.html#set_vec",
+        "title": "set_vec",
+        "section": "set_vec",
+        "text": "Push a NumPy array or a Python list to the MAPDL memory workspace.\nNumPy array or Python list to push to MAPDL. It must be\none dimensional.\nAnsMath vector name. The default is None, in which case\na name is automatically generated.\nAnsMath vector instance generated from the pushed vector.\nPush a random vector from NumPy to MAPDL."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.vec",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.vec.html#vec",
+        "title": "vec",
+        "section": "vec",
+        "text": "Create a vector.\nSize of the vector.\nNumPy data type of the vector. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nInitialization options. Options are \"ones\", \"zeros\",\nor \"rand\". The default is \"zeros\".\nAnsMath vector name. The default is None, in which case a\nname is automatically generated.\nWhether the output is to be a NumPy array vector rather than an\nAnsMath vector. The default is False.\nAnsMath vector or NumPy array vector, depending on the value for\nthe asarray parameter."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.norm",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.norm.html#norm",
+        "title": "norm",
+        "section": "norm",
+        "text": "Return the norm of the AnsMath object.\nMathematical norm to use. The default is 'NRM2'. Options are:\n'NRM2': L2 (Euclidean or SRSS) norm.\n'NRM1': L1 (absolute sum) norm (vectors only).\n'NRMINF': Maximum norm.\nNorm of the matrix or the one or more vectors."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.dot",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.dot.html#dot",
+        "title": "dot",
+        "section": "dot",
+        "text": "Multiply the AnsMath object by another AnsMath object.\nAnsMath object.\nMatrix multiplication result.\nMultiplication of a matrix and vector."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.load_matrix_from_file",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.load_matrix_from_file.html#load_matrix_from_file",
+        "title": "load_matrix_from_file",
+        "section": "load_matrix_from_file",
+        "text": "Import a matrix from an existing FULL file.\nData type to store the matrix as. The options are double\n(\"DOUBLE\" or \"D\"), complex numbers (\"COMPLEX\" or \"Z\"),\nor NumPy data type (np.double, np.int32, and np.int64).\nThe default is np.double.\nName of the file to read the matrix from. The default is \"file.full\".\nAnsMath matrix name. The default is None, in which case a\nname is automatically generated.\nMatrix type. The default is \"STIFF\". Options are:\n\"STIFF\": Stiffness matrix.\n\"MASS\": Mass matrix.\n\"DAMP\": Damping matrix.\n\"GMAT\": Constraint equation matrix.\n\"K_RE\": Real part of the stiffness matrix.\n\"K_IM\": Imaginary part of the stiffness matrix.\nWhether to return a SciPy array rather than an AnsMath matrix.\nThe default is False.\nAnsMath matrix or SciPy sparse matrix, depending on the value for\nthe asarray parameter."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.rand",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.rand.html#rand",
+        "title": "rand",
+        "section": "rand",
+        "text": "Set all values of the object to a random number."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.html#ansmathobj",
+        "title": "AnsMathObj",
+        "section": "AnsMathObj",
+        "text": "Provides the common class for AnsMath objects.\nAnsMathObj.axpy(obj, val1, val2)\nPerform the matrix operation: self= val1*obj + val2*self.\nAnsMathObj.const(value)\nSet all values of the object to a constant.\nAnsMathObj.copy()\nGet the name of the copy of this object.\nAnsMathObj.kron(obj)\nCalculates the Kronecker product of two matrices/vectors\nAnsMathObj.norm([nrmtype])\nReturn the norm of the AnsMath object.\nAnsMathObj.ones()\nSet all values of the object to one.\nAnsMathObj.rand()\nSet all values of the object to a random number.\nAnsMathObj.zeros()\nSet all values of the object to zero."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.copy",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.copy.html#copy",
+        "title": "copy",
+        "section": "copy",
+        "text": "Get the name of the copy of this object."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.zeros",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.zeros.html#zeros",
+        "title": "zeros",
+        "section": "zeros",
+        "text": "Set all values of the object to zero."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.damp",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.damp.html#damp",
+        "title": "damp",
+        "section": "damp",
+        "text": "Load the damping matrix from a FULL file.\nNumPy data type to store the matrix as. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nThis parameter is only applicable if asarray=True.\nAnsMath matrix name. The default is None, in which case a\nname is automatically generated.\nName of the file to read the matrix from. The default is \"file.full\".\nWhether to return a SciPy array rather than an AnsMath matrix.\nThe default is False.\nAnsMath matrix or SciPy sparse matrix, depending on the value for\nthe asarray parameter.\nConvert to a SciPy array."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.mgs",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.mgs.html#mgs",
+        "title": "mgs",
+        "section": "mgs",
+        "text": "Apply the Modified Gram-Schmidt (MGS) algorithm to a matrix.\nThe MGS algorithm is only applicable to dense matrices.\nColumns that are linearly dependent on others are removed,\nleaving the independent or basis vectors. The matrix is\nresized according to the new size determined by the algorithm.\nArray to apply the Modified Gram-Schmidt algorithm to.\nNumerical threshold value for managing the compression.\nFor the MGS algorithm, the default value is 1E-14.\nApply the MGS algorithm on an existing dense rectangular matrix,\nusing the default threshold. The AnsMath matrix is modified in-situ."
+    },
+    {
+        "objectID": "contributing/index",
+        "href": "contributing/index.html#contribute",
+        "title": "Contribute",
+        "section": "Contribute",
+        "text": "Overall guidance on contributing to a PyAnsys library appears in the\nContributing topic\nin the PyAnsys Developer’s Guide. Ensure that you are thoroughly familiar\nwith this guide before attempting to contribute to PyAnsys Math.\nThe following contribution information is specific to PyAnsys Math.\nRun this code to clone and install the latest version of PyAnsys Math in development mode:\nUse the PyAnsys Math Issues page to submit questions,\nreport bugs, and request new features. When possible, use these issue\ntemplates:\nBug report template\nFeature request template\nIf your issue does not fit into one of these categories, create your own issue.\nTo reach the project support team, email pyansys.core@ansys.com.\nTo build the PyAnsys Math documentation locally, in the root directory of the repository, run:\nDocumentation for the latest stable release of PyAnsys Math is hosted at\nPyAnsys Math Documentation.\nIn the upper right corner of the documentation’s title bar, there is an option for\nswitching from viewing the documentation for the latest stable release to viewing\nthe documentation for the development version or previously released versions.\nPyAnsys Math follows the PEP8 standard as outlined in the PyAnsys Development Guide and implements style checking using\npre-commit.\nTo ensure your code meets minimum code styling standards, run this code:\nYou can also install this as a pre-commit hook by running this code:\nThis way, it’s not possible for you to push code that fails the style checks:\ngit clone https://github.com/ansys/pyansys-math\ncd pyansys-math\npython -m pip install --upgrade pip\npip install -e .\npip install .[doc]\n.\\doc\\make.bat html\npip install pre-commit\npre-commit run --all-files\npre-commit install\n$ pre-commit install\n$ git commit -am \"added my cool feature\"\nblack....................................................................Passed\nblacken-docs.............................................................Passed\nisort....................................................................Passed\nflake8...................................................................Passed\ncodespell................................................................Passed\ncheck for merge conflicts................................................Passed\ndebug statements (python)................................................Passed\nValidate GitHub Workflows................................................Passed"
+    },
+    {
+        "objectID": "contributing/index",
+        "href": "contributing/index.html#clone-the-repository",
+        "title": "Contribute > Clone the repository",
+        "section": "Clone the repository",
+        "text": "Run this code to clone and install the latest version of PyAnsys Math in development mode:\ngit clone https://github.com/ansys/pyansys-math\ncd pyansys-math\npython -m pip install --upgrade pip\npip install -e ."
+    },
+    {
+        "objectID": "contributing/index",
+        "href": "contributing/index.html#post-issues",
+        "title": "Contribute > Post issues",
+        "section": "Post issues",
+        "text": "Use the PyAnsys Math Issues page to submit questions,\nreport bugs, and request new features. When possible, use these issue\ntemplates:\nBug report template\nFeature request template\nIf your issue does not fit into one of these categories, create your own issue.\nTo reach the project support team, email pyansys.core@ansys.com."
+    },
+    {
+        "objectID": "contributing/index",
+        "href": "contributing/index.html#build-documentation",
+        "title": "Contribute > Build documentation",
+        "section": "Build documentation",
+        "text": "To build the PyAnsys Math documentation locally, in the root directory of the repository, run:\nDocumentation for the latest stable release of PyAnsys Math is hosted at\nPyAnsys Math Documentation.\nIn the upper right corner of the documentation’s title bar, there is an option for\nswitching from viewing the documentation for the latest stable release to viewing\nthe documentation for the development version or previously released versions.\npip install .[doc]\n.\\doc\\make.bat html"
+    },
+    {
+        "objectID": "contributing/index",
+        "href": "contributing/index.html#adhere-to-code-style",
+        "title": "Contribute > Adhere to code style",
+        "section": "Adhere to code style",
+        "text": "PyAnsys Math follows the PEP8 standard as outlined in the PyAnsys Development Guide and implements style checking using\npre-commit.\nTo ensure your code meets minimum code styling standards, run this code:\nYou can also install this as a pre-commit hook by running this code:\nThis way, it’s not possible for you to push code that fails the style checks:\npip install pre-commit\npre-commit run --all-files\npre-commit install\n$ pre-commit install\n$ git commit -am \"added my cool feature\"\nblack....................................................................Passed\nblacken-docs.............................................................Passed\nisort....................................................................Passed\nflake8...................................................................Passed\ncodespell................................................................Passed\ncheck for merge conflicts................................................Passed\ndebug statements (python)................................................Passed\nValidate GitHub Workflows................................................Passed"
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#use-pyansys-math-to-solve-a-dense-matrix-linear-system",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system",
+        "section": "Use PyAnsys Math to solve a dense matrix linear system",
+        "text": "This example shows how to use PyAnsys Math to solve a dense matrix linear system.\nAllocate a dense matrix in the MAPDL workspace.\nCopy the matrices as NumPy arrays before they are modified by\na factorization call.\nSolve the dense matrix linear system using PyAnsys Math.\nGet the norm of the PyAnsys Math solution.\nSolve the dense matrix linear system using NumPy.\nPlot the elapsed times for PyAnsys Math and Numpy to solve the dense\nmatrix linear system.\nGet the norm of the NumPy solution.\nStop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.365 seconds)\nDownload Jupyter notebook: solve_dense_matrix.ipynb\nDownload Python source code: solve_dense_matrix.py\nDownload zipped: solve_dense_matrix.zip\nGallery generated by Sphinx-Gallery\n# Perform required imports and start PyAnsys\n# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n# Perform required imports.\n\nimport time\n\nimport matplotlib.pyplot as plt\nimport numpy.linalg as npl\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a server.\nmm = pymath.AnsMath()\nmm._mapdl.clear()\ndim = 1000\na = mm.rand(dim, dim)\nb = mm.rand(dim)\nx = mm.zeros(dim)\na_py = a.asarray()\nb_py = b.asarray()\nprint(f\"Solving a ({dim} x {dim}) dense linear system using PyAnsys Math...\")\n\nt1 = time.time()\ns = mm.factorize(a)\nx = s.solve(b, x)\nt2 = time.time()\npymath_time = t2 - t1\nprint(f\"Elapsed time to solve the linear system using PyAnsys Math: {pymath_time} seconds\")\nSolving a (1000 x 1000) dense linear system using PyAnsys Math...\nElapsed time to solve the linear system using PyAnsys Math: 0.042484283447265625 seconds\nmm.norm(x)\n1.000000000000001\nprint(f\"Solving a ({dim} x {dim}) dense linear system using NumPy...\")\n\nt1 = time.time()\nx_py = npl.solve(a_py, b_py)\nt2 = time.time()\nnumpy_time = t2 - t1\nprint(f\"Elapsed time to solve the linear system using NumPy: {numpy_time} seconds\")\nSolving a (1000 x 1000) dense linear system using NumPy...\nElapsed time to solve the linear system using NumPy: 0.024129390716552734 seconds\nmax_time = max(pymath_time, numpy_time)\nfig = plt.figure(figsize=(12, 10))\nax = plt.axes()\nx = [\"PyAnsys Math\", \"NumPy\"]\ny = [pymath_time, numpy_time]\nplt.title(\"Elapsed time to solve the linear system\")\nplt.ylim([0, max_time + 0.2 * max_time])\nplt.ylabel(\"Elapsed time (s)\")\nax.bar(x, y, color=\"orange\")\nplt.show()\nnpl.norm(x_py)\nnp.float64(0.9999999999999996)\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#allocate-dense-matrix",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system > Allocate dense matrix",
+        "section": "Allocate dense matrix",
+        "text": "Allocate a dense matrix in the MAPDL workspace.\nmm._mapdl.clear()\ndim = 1000\na = mm.rand(dim, dim)\nb = mm.rand(dim)\nx = mm.zeros(dim)"
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#copy-matrices-as-numpy-arrays",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system > Copy matrices as NumPy arrays",
+        "section": "Copy matrices as NumPy arrays",
+        "text": "Copy the matrices as NumPy arrays before they are modified by\na factorization call.\na_py = a.asarray()\nb_py = b.asarray()"
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#solve-using-pyansys-math",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system > Solve using PyAnsys Math",
+        "section": "Solve using PyAnsys Math",
+        "text": "Solve the dense matrix linear system using PyAnsys Math.\nprint(f\"Solving a ({dim} x {dim}) dense linear system using PyAnsys Math...\")\n\nt1 = time.time()\ns = mm.factorize(a)\nx = s.solve(b, x)\nt2 = time.time()\npymath_time = t2 - t1\nprint(f\"Elapsed time to solve the linear system using PyAnsys Math: {pymath_time} seconds\")\nSolving a (1000 x 1000) dense linear system using PyAnsys Math...\nElapsed time to solve the linear system using PyAnsys Math: 0.042484283447265625 seconds"
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#get-norm-of-solution",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system > Get norm of solution",
+        "section": "Get norm of solution",
+        "text": "Get the norm of the PyAnsys Math solution.\nmm.norm(x)\n1.000000000000001"
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#solve-using-numpy",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system > Solve using NumPy",
+        "section": "Solve using NumPy",
+        "text": "Solve the dense matrix linear system using NumPy.\nprint(f\"Solving a ({dim} x {dim}) dense linear system using NumPy...\")\n\nt1 = time.time()\nx_py = npl.solve(a_py, b_py)\nt2 = time.time()\nnumpy_time = t2 - t1\nprint(f\"Elapsed time to solve the linear system using NumPy: {numpy_time} seconds\")\nSolving a (1000 x 1000) dense linear system using NumPy...\nElapsed time to solve the linear system using NumPy: 0.024129390716552734 seconds"
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#plot-elapsed-times",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system > Plot elapsed times",
+        "section": "Plot elapsed times",
+        "text": "Plot the elapsed times for PyAnsys Math and Numpy to solve the dense\nmatrix linear system.\nmax_time = max(pymath_time, numpy_time)\nfig = plt.figure(figsize=(12, 10))\nax = plt.axes()\nx = [\"PyAnsys Math\", \"NumPy\"]\ny = [pymath_time, numpy_time]\nplt.title(\"Elapsed time to solve the linear system\")\nplt.ylim([0, max_time + 0.2 * max_time])\nplt.ylabel(\"Elapsed time (s)\")\nax.bar(x, y, color=\"orange\")\nplt.show()"
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#get-norm-of-solution",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system > Get norm of solution",
+        "section": "Get norm of solution",
+        "text": "Get the norm of the NumPy solution.\nnpl.norm(x_py)\nnp.float64(0.9999999999999996)"
+    },
+    {
+        "objectID": "examples/solve_dense_matrix",
+        "href": "examples/solve_dense_matrix.html#stop-pyansys-math",
+        "title": "Use PyAnsys Math to solve a dense matrix linear system > Stop PyAnsys Math",
+        "section": "Stop PyAnsys Math",
+        "text": "Stop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.365 seconds)\nDownload Jupyter notebook: solve_dense_matrix.ipynb\nDownload Python source code: solve_dense_matrix.py\nDownload zipped: solve_dense_matrix.zip\nGallery generated by Sphinx-Gallery\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.rand",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.rand.html#rand",
+        "title": "rand",
+        "section": "rand",
+        "text": "Set all values of the object to a random number."
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#ansmath-sparse-matrices-and-scipy-sparse-matrices",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices",
+        "section": "AnsMath sparse matrices and SciPy sparse matrices",
+        "text": "This example shows how to get AnsMath sparse matrices into SciPy\nsparse matrices.\nPerform required imports.\nRun the input file from Verification Manual 153 and then\nget the stiff (k) matrix from the FULL file.\nCopy the AnsMath sparse matrix to a SciPy CSR matrix. Then, plot the\ngraph of the sparse matrix.\nYou can access the three vectors that describe this sparse matrix with:\npk.data\npk.indices\npk.indptr\nFor more information, see SciPy’s class description for the\nCSR (compressed sparse row) matrix.\nCreate an AnsMath sparse matrix from a SciPy sparse CSR matrix.\nThen, transfer the SciPy CSR matrix back to PyAnsys Math.\nWhile this code uses a matrix that was originally within MAPDL, you can\nload any CSR matrix into PyAnsys Math.\nCheck that the matrices k and my_mat are exactly the sames. The\nnorm of the difference should be zero.\nPrinting the list of objects for the CSR representation in the PyAnsys Math\nspace finds these objects:\nTwo SMAT objects, corresponding to the k, MSub matrices,\nwith encrypted names.\nThe my_mat SMAT object. Its size is zero because the three\nvectors are stored separately.\nThe three vectors of the CSR my_mat structure: MY_MAT_PTR,\nMY_MAT_IND, and MY_MAT_DATA.\nTo determine which PyAnsys Math object corresponds to which Python object,\naccess the id property of the Python object.\nStop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.628 seconds)\nDownload Jupyter notebook: scipy_sparse_matrix.ipynb\nDownload Python source code: scipy_sparse_matrix.py\nDownload zipped: scipy_sparse_matrix.zip\nGallery generated by Sphinx-Gallery\nfrom ansys.mapdl.core.examples import vmfiles\nimport matplotlib.pylab as plt\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()\nout = mm._mapdl.input(vmfiles[\"vm153\"])\nfullfile = mm._mapdl.jobname + \".full\"\nk = mm.stiff(fname=fullfile)\npk = k.asarray()\nplt.spy(pk, color=\"orange\", markersize=3)\nplt.title(\"AnsMath sparse matrix\")\nplt.show()\nprint(pk.data[:10])\nprint(pk.indices[:10])\nprint(pk.indptr[:10])\n[ 0.20292539  0.00378143 -0.05003569 -0.01392161 -0.05003569 -0.01392161\n -0.05142701  0.02406179 -0.05142701  0.20090661]\n[ 0  1  4  7 18 21 30 47 50  1]\n[ 0  9 17 29 40 47 57 66 72 79]\nmy_mat = mm.matrix(pk, \"my_mat\", triu=True)\nmy_mat\nAnsMath sparse matrix (63, 63)\nmsub = k - my_mat\nmm.norm(msub)\n0.0\nmm.status()\nAPDLMATH PARAMETER STATUS-  (      6 PARAMETERS DEFINED)\n\n  Name                   Type            Mem. (MB)       Dims            Workspace\n\n   HTZSMA                SMAT            0.006           [63:63]         1\n   MY_MAT                SMAT            0.000           [63:63]         1\n   TYCJNC                SMAT            0.006           [63:63]         1\n   MY_MAT_DATA           VEC             0.003           344             1\n   MY_MAT_IND            VEC             0.000           64              1\n   MY_MAT_PTR            VEC             0.001           344             1\nprint(\"name(k)=\" + k.id)\nprint(\"name(my_mat)=\" + my_mat.id)\nprint(\"name(msub)=\" + msub.id)\nname(k)=HTZSMA\nname(my_mat)=my_mat\nname(msub)=TYCJNC\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#perform-required-imports-and-start-pyansys",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices > Perform required imports and start PyAnsys",
+        "section": "Perform required imports and start PyAnsys",
+        "text": "Perform required imports.\nfrom ansys.mapdl.core.examples import vmfiles\nimport matplotlib.pylab as plt\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()"
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#get-matrices",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices > Get matrices",
+        "section": "Get matrices",
+        "text": "Run the input file from Verification Manual 153 and then\nget the stiff (k) matrix from the FULL file.\nout = mm._mapdl.input(vmfiles[\"vm153\"])\nfullfile = mm._mapdl.jobname + \".full\"\nk = mm.stiff(fname=fullfile)"
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#copy-ansmath-sparse-matrix-to-scipy-csr-matrix-and-plot",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices > Copy AnsMath sparse matrix to SciPy CSR matrix and plot",
+        "section": "Copy AnsMath sparse matrix to SciPy CSR matrix and plot",
+        "text": "Copy the AnsMath sparse matrix to a SciPy CSR matrix. Then, plot the\ngraph of the sparse matrix.\npk = k.asarray()\nplt.spy(pk, color=\"orange\", markersize=3)\nplt.title(\"AnsMath sparse matrix\")\nplt.show()"
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#access-vectors",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices > Access vectors",
+        "section": "Access vectors",
+        "text": "You can access the three vectors that describe this sparse matrix with:\npk.data\npk.indices\npk.indptr\nFor more information, see SciPy’s class description for the\nCSR (compressed sparse row) matrix.\nprint(pk.data[:10])\nprint(pk.indices[:10])\nprint(pk.indptr[:10])\n[ 0.20292539  0.00378143 -0.05003569 -0.01392161 -0.05003569 -0.01392161\n -0.05142701  0.02406179 -0.05142701  0.20090661]\n[ 0  1  4  7 18 21 30 47 50  1]\n[ 0  9 17 29 40 47 57 66 72 79]"
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#create-ansmath-sparse-matrix-from-scipy-sparse-csr-matrix",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices > Create AnsMath sparse matrix from SciPy sparse CSR matrix",
+        "section": "Create AnsMath sparse matrix from SciPy sparse CSR matrix",
+        "text": "Create an AnsMath sparse matrix from a SciPy sparse CSR matrix.\nThen, transfer the SciPy CSR matrix back to PyAnsys Math.\nWhile this code uses a matrix that was originally within MAPDL, you can\nload any CSR matrix into PyAnsys Math.\nCheck that the matrices k and my_mat are exactly the sames. The\nnorm of the difference should be zero.\nmy_mat = mm.matrix(pk, \"my_mat\", triu=True)\nmy_mat\nAnsMath sparse matrix (63, 63)\nmsub = k - my_mat\nmm.norm(msub)\n0.0"
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#print-csr-representation-in-pyansys-math",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices > Print CSR representation in PyAnsys Math",
+        "section": "Print CSR representation in PyAnsys Math",
+        "text": "Printing the list of objects for the CSR representation in the PyAnsys Math\nspace finds these objects:\nTwo SMAT objects, corresponding to the k, MSub matrices,\nwith encrypted names.\nThe my_mat SMAT object. Its size is zero because the three\nvectors are stored separately.\nThe three vectors of the CSR my_mat structure: MY_MAT_PTR,\nMY_MAT_IND, and MY_MAT_DATA.\nmm.status()\nAPDLMATH PARAMETER STATUS-  (      6 PARAMETERS DEFINED)\n\n  Name                   Type            Mem. (MB)       Dims            Workspace\n\n   HTZSMA                SMAT            0.006           [63:63]         1\n   MY_MAT                SMAT            0.000           [63:63]         1\n   TYCJNC                SMAT            0.006           [63:63]         1\n   MY_MAT_DATA           VEC             0.003           344             1\n   MY_MAT_IND            VEC             0.000           64              1\n   MY_MAT_PTR            VEC             0.001           344             1"
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#access-id-of-python-object",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices > Access ID of Python object",
+        "section": "Access ID of Python object",
+        "text": "To determine which PyAnsys Math object corresponds to which Python object,\naccess the id property of the Python object.\nprint(\"name(k)=\" + k.id)\nprint(\"name(my_mat)=\" + my_mat.id)\nprint(\"name(msub)=\" + msub.id)\nname(k)=HTZSMA\nname(my_mat)=my_mat\nname(msub)=TYCJNC"
+    },
+    {
+        "objectID": "examples/scipy_sparse_matrix",
+        "href": "examples/scipy_sparse_matrix.html#stop-pyansys-math",
+        "title": "AnsMath sparse matrices and SciPy sparse matrices > Stop PyAnsys Math",
+        "section": "Stop PyAnsys Math",
+        "text": "Stop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.628 seconds)\nDownload Jupyter notebook: scipy_sparse_matrix.ipynb\nDownload Python source code: scipy_sparse_matrix.py\nDownload zipped: scipy_sparse_matrix.zip\nGallery generated by Sphinx-Gallery\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.shape",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.shape.html#shape",
+        "title": "shape",
+        "section": "shape",
+        "text": "NumPy-like shape.\nTuple of (rows and columns)."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.kron",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.kron.html#kron",
+        "title": "kron",
+        "section": "kron",
+        "text": "Calculates the Kronecker product of two matrices/vectors\nAnsMath object.\nKronecker product between the two matrices/vectors.\nRequires at least MAPDL version 2023R2."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.norm",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.norm.html#norm",
+        "title": "norm",
+        "section": "norm",
+        "text": "Return the norm of an AnsMath object.\nAnsMath object to compute the norm from.\nMathematical norm to use. The default is 'NRM2'.\nOptions are:\n'NRM2': L2 (Euclidean or SRSS) norm.\n'NRM1': L1 (absolute sum) norm (vectors only).\n'NRMINF': Maximum norm.\nNorm of the matrix or the one or more vectors.\nCompute the norm of an AnsMath vector."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.rand",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.rand.html#rand",
+        "title": "rand",
+        "section": "rand",
+        "text": "Create a vector or a matrix where all values are random.\nNumber of rows.\nNumber of columns. If a value is specified, a matrix is returned.\nNumPy data type of the object. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nAnsMath object name. The default is None, in which case a\nname is automatically generated.\nWhether to return a NumPy array rather than an AnsMath object.\nThe default is False.\nAnsMath vector, NumPy array vector, AnsMath matrix, or NumPy array matrix,\ndepending on the value for the asarray parameter and if a value for\nthe ncol parameter is specified.\nCreate a vector where all values are random.\nCreate a matrix where all values are random."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.const",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.const.html#const",
+        "title": "const",
+        "section": "const",
+        "text": "Set all values of the object to a constant."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.kron",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.kron.html#kron",
+        "title": "kron",
+        "section": "kron",
+        "text": "Calculates the Kronecker product of two matrices/vectors\nAnsMath object.\nKronecker product between the two matrices/vectors.\nRequires at least MAPDL version 2023R2."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.dot",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.dot.html#dot",
+        "title": "dot",
+        "section": "dot",
+        "text": "Multiply the AnsMath vector by another AnsMath vector.\nAnsMath vector.\nProduct of multiplying this vector with another vector."
+    },
+    {
+        "objectID": "sg_execution_times",
+        "href": "sg_execution_times.html#computation-times",
+        "title": "Computation times",
+        "section": "Computation times",
+        "text": "00:16.062 total execution time for 7 files from all galleries:\nExample\nTime\nMem (MB)\nsphx_glr_examples_ansys-math_vs_scipy.py (../../examples/ansys-math_vs_scipy.py)\n00:11.988\n0.0\nsphx_glr_examples_eigen_solve.py (../../examples/eigen_solve.py)\n00:01.540\n0.0\nsphx_glr_examples_solve_sparse_matrix.py (../../examples/solve_sparse_matrix.py)\n00:00.636\n0.0\nsphx_glr_examples_scipy_sparse_matrix.py (../../examples/scipy_sparse_matrix.py)\n00:00.628\n0.0\nsphx_glr_examples_basic_operations.py (../../examples/basic_operations.py)\n00:00.558\n0.0\nsphx_glr_examples_solve_dense_matrix.py (../../examples/solve_dense_matrix.py)\n00:00.365\n0.0\nsphx_glr_examples_use_numpy_arrays.py (../../examples/use_numpy_arrays.py)\n00:00.346\n0.0"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.html#anssolver",
+        "title": "AnsSolver",
+        "section": "AnsSolver",
+        "text": "Provides the AnsMath solver class.\nAnsSolver.axpy(obj, val1, val2)\nPerform the matrix operation: self= val1*obj + val2*self.\nAnsSolver.const(value)\nSet all values of the object to a constant.\nAnsSolver.copy()\nGet the name of the copy of this object.\nAnsSolver.factorize(mat[, algo, inplace])\nFactorize a matrix.\nAnsSolver.kron(obj)\nCalculates the Kronecker product of two matrices/vectors\nAnsSolver.norm([nrmtype])\nReturn the norm of the AnsMath object.\nAnsSolver.ones()\nSet all values of the object to one.\nAnsSolver.rand()\nSet all values of the object to a random number.\nAnsSolver.solve(b[, x])\nSolve a linear system.\nAnsSolver.zeros()\nSet all values of the object to zero."
+    },
+    {
+        "objectID": "getting_started/index",
+        "href": "getting_started/index.html#getting-started",
+        "title": "Getting started",
+        "section": "Getting started",
+        "text": "For information on getting a licensed copy of Ansys Mechanical APDL, visit\nthe Ansys web site.\nThe ansys.math.core package currently supports Python 3.10 through\nPython 3.12 on Windows, Mac OS, and Linux.\nInstall the latest package for use with this command:\nAlternatively, install the latest\nPyAnsys Math GitHub package\nwith this command:\nFor a local development version, install the latest package with:\nInstalling the development version allows you to edit the ansys-math-core\npackage locally. The changes that you make are reflected in your setup\nafter restarting the Python kernel.\nCheck that you can start PyAnsys Math from Python by running this code:\nIf you see a response from the server, you can start using PyAnsys Math\nas a service.\nYou must have a copy of Ansys 2021 R1 or later installed locally.\nThe latest versions of Ansys provide significantly better support\nand features. PyAnsys Math is not supported on Ansys versions earlier than 2021 R1.\npip install ansys-math-core\npip install git+https://github.com/ansys/pyansys-math.git\ngit clone https://github.com/ansys/pyansys-math.git\ncd pyansys-math\npip install -e .\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math.\nmm = pymath.AnsMath()\nprint(mm)"
+    },
+    {
+        "objectID": "getting_started/index",
+        "href": "getting_started/index.html#installation",
+        "title": "Getting started > Installation",
+        "section": "Installation",
+        "text": "The ansys.math.core package currently supports Python 3.10 through\nPython 3.12 on Windows, Mac OS, and Linux.\nInstall the latest package for use with this command:\nAlternatively, install the latest\nPyAnsys Math GitHub package\nwith this command:\nFor a local development version, install the latest package with:\nInstalling the development version allows you to edit the ansys-math-core\npackage locally. The changes that you make are reflected in your setup\nafter restarting the Python kernel.\npip install ansys-math-core\npip install git+https://github.com/ansys/pyansys-math.git\ngit clone https://github.com/ansys/pyansys-math.git\ncd pyansys-math\npip install -e ."
+    },
+    {
+        "objectID": "getting_started/index",
+        "href": "getting_started/index.html#for-users",
+        "title": "Getting started > For users",
+        "section": "For users",
+        "text": "The ansys.math.core package currently supports Python 3.10 through\nPython 3.12 on Windows, Mac OS, and Linux.\nInstall the latest package for use with this command:\nAlternatively, install the latest\nPyAnsys Math GitHub package\nwith this command:\npip install ansys-math-core\npip install git+https://github.com/ansys/pyansys-math.git"
+    },
+    {
+        "objectID": "getting_started/index",
+        "href": "getting_started/index.html#for-developers",
+        "title": "Getting started > For developers",
+        "section": "For developers",
+        "text": "For a local development version, install the latest package with:\nInstalling the development version allows you to edit the ansys-math-core\npackage locally. The changes that you make are reflected in your setup\nafter restarting the Python kernel.\ngit clone https://github.com/ansys/pyansys-math.git\ncd pyansys-math\npip install -e ."
+    },
+    {
+        "objectID": "getting_started/index",
+        "href": "getting_started/index.html#verify-your-installation",
+        "title": "Getting started > Verify your installation",
+        "section": "Verify your installation",
+        "text": "Check that you can start PyAnsys Math from Python by running this code:\nIf you see a response from the server, you can start using PyAnsys Math\nas a service.\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math.\nmm = pymath.AnsMath()\nprint(mm)"
+    },
+    {
+        "objectID": "getting_started/index",
+        "href": "getting_started/index.html#ansys-software-requirements",
+        "title": "Getting started > Ansys software requirements",
+        "section": "Ansys software requirements",
+        "text": "You must have a copy of Ansys 2021 R1 or later installed locally.\nThe latest versions of Ansys provide significantly better support\nand features. PyAnsys Math is not supported on Ansys versions earlier than 2021 R1."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.asarray",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.asarray.html#asarray",
+        "title": "asarray",
+        "section": "asarray",
+        "text": "Return the matrix as a NumPy array.\nNumPy data type to upload the array as. The options are np.double,\nnp.int32, and np.int64. The default is the current array\ntype.\nNumPy array with the defined data type."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.stiff",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.stiff.html#stiff",
+        "title": "stiff",
+        "section": "stiff",
+        "text": "Load the stiffness matrix from a FULL file.\nNumPy data type to store the matrix as. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nThis parameter is only applicable if asarray=True.\nAnsMath matrix name. The default is None, in which case a\nname is automatically generated.\nName of the file to read the matrix from. The default is \"file.full\".\nWhether to return a SciPy array rather than an AnsMath matrix.\nThe default is False.\nAnsMath matrix or SciPy sparse matrix, depending on the value for\nthe asarray parameter.\nConvert to a SciPy array."
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#pyansys-math-documentation",
+        "title": "PyAnsys Math documentation",
+        "section": "PyAnsys Math documentation",
+        "text": "PyAnsys Math aims to gather all mathematical calculation tools present\nin Ansys software.\nThis Python library allows you to access and manipulate large sparse matrices\nand solve a variety of eigenproblems. It is presented in a similar manner to\nthe popular NumPy and SciPy libraries.\nThe command set for PyAnsys Math is based on tools for manipulating large mathematical\nmatrices and vectors that provide access to standard linear algebra operations and the\npowerful sparse linear solvers of Ansys Mechanical APDL (MAPDL), providing the ability\nto solve eigenproblems.\nPython and MATLAB eigensolvers are based on the publicly available\nLAPACK libraries and provide reasonable solve times for eigenproblems\nwith relatively small degrees of freedom (DOF), perhaps 100,000.\nHowever, Ansys solvers are designed for the scale of hundreds of\nmillions of DOF, providing a variety of situations where you can\ndirectly leverage Ansys high-performance solvers on a variety of\neigenproblems. Fortunately, you can leverage this without relearning\nan entirely new language because PyAnsys Math is written in a similar manner\nas the NumPy and SciPy libraries. For example, here is a comparison between\nthe NumPy and SciPy linear algebra solvers and the PyAnsys Math solver:\nNumPy and SciPy\nPyAnsys Math\nPyAnsys Math uses the MAPDL solver in the background. It is based on the\nlaunch_mapdl() method from PyMAPDL’s ansys-mapdl-core\npackage.\nBecause PyMAPDL is gRPC-based, the MAPDL solver can function as\na server, ready to respond to connecting clients. With gRPC establishing\nsecure connections, a client app can directly call methods on a potentially\nremote MAPDL instance as if it were a local object. The use of HTTP/2 makes\ngRPC friendly to modern internet infrastructures. This, along with the use\nof binary transmission formats, favors higher performance.\nHere is a brief example of how you use PyAnsys Math:\nFor comprehensive PyAnsys Math examples, see ref_pymath_examples.\nk_py = k + sparse.triu(k, 1).T\nm_py = m + sparse.triu(m, 1).T\nn = 10\nev = linalg.eigsh(k_py, k=neqv, M=m_py)\nk = mm.matrix(k_py, triu=True)\nm = mm.matrix(m_py, triu=True)\nn = 10\nev = mm.eigs(n, k, m)\nimport ansys.math.core.math as pymath\n\nmm = pymath.AnsMath()\n\nu = mm.ones(5)\nv = mm.rand(5)\nw = u + v\n\nprint(w)\nUDWZKD :\nSize : 5\n1.417e+00   1.997e+00   1.720e+00   1.933e+00   1.000e+00      <       5"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#introduction",
+        "title": "PyAnsys Math documentation > Introduction",
+        "section": "Introduction",
+        "text": "PyAnsys Math aims to gather all mathematical calculation tools present\nin Ansys software.\nThis Python library allows you to access and manipulate large sparse matrices\nand solve a variety of eigenproblems. It is presented in a similar manner to\nthe popular NumPy and SciPy libraries.\nThe command set for PyAnsys Math is based on tools for manipulating large mathematical\nmatrices and vectors that provide access to standard linear algebra operations and the\npowerful sparse linear solvers of Ansys Mechanical APDL (MAPDL), providing the ability\nto solve eigenproblems.\nPython and MATLAB eigensolvers are based on the publicly available\nLAPACK libraries and provide reasonable solve times for eigenproblems\nwith relatively small degrees of freedom (DOF), perhaps 100,000.\nHowever, Ansys solvers are designed for the scale of hundreds of\nmillions of DOF, providing a variety of situations where you can\ndirectly leverage Ansys high-performance solvers on a variety of\neigenproblems. Fortunately, you can leverage this without relearning\nan entirely new language because PyAnsys Math is written in a similar manner\nas the NumPy and SciPy libraries. For example, here is a comparison between\nthe NumPy and SciPy linear algebra solvers and the PyAnsys Math solver:\nNumPy and SciPy\nPyAnsys Math\nk_py = k + sparse.triu(k, 1).T\nm_py = m + sparse.triu(m, 1).T\nn = 10\nev = linalg.eigsh(k_py, k=neqv, M=m_py)\nk = mm.matrix(k_py, triu=True)\nm = mm.matrix(m_py, triu=True)\nn = 10\nev = mm.eigs(n, k, m)"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#background",
+        "title": "PyAnsys Math documentation > Background",
+        "section": "Background",
+        "text": "PyAnsys Math uses the MAPDL solver in the background. It is based on the\nlaunch_mapdl() method from PyMAPDL’s ansys-mapdl-core\npackage.\nBecause PyMAPDL is gRPC-based, the MAPDL solver can function as\na server, ready to respond to connecting clients. With gRPC establishing\nsecure connections, a client app can directly call methods on a potentially\nremote MAPDL instance as if it were a local object. The use of HTTP/2 makes\ngRPC friendly to modern internet infrastructures. This, along with the use\nof binary transmission formats, favors higher performance."
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#quick-code",
+        "title": "PyAnsys Math documentation > Quick code",
+        "section": "Quick code",
+        "text": "Here is a brief example of how you use PyAnsys Math:\nFor comprehensive PyAnsys Math examples, see ref_pymath_examples.\nimport ansys.math.core.math as pymath\n\nmm = pymath.AnsMath()\n\nu = mm.ones(5)\nv = mm.rand(5)\nw = u + v\n\nprint(w)\nUDWZKD :\nSize : 5\n1.417e+00   1.997e+00   1.720e+00   1.933e+00   1.000e+00      <       5"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsSolver.rand",
+        "href": "api/_autosummary/ansys.math.core.math.AnsSolver.rand.html#rand",
+        "title": "rand",
+        "section": "rand",
+        "text": "Set all values of the object to a random number."
+    },
+    {
+        "objectID": "user_guide/arrays",
+        "href": "user_guide/arrays.html#handling-arrays-between-pyansys-math-and-python",
+        "title": "Handling arrays between PyAnsys Math and Python",
+        "section": "Handling arrays between PyAnsys Math and Python",
+        "text": "import numpy as np\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()\n\na = np.random.random((2, 3))\na_pymath = mm.matrix(a, name=\"A\")\n\nprint(a_pymath)\nA:\n[1,1]: 4.018e-01 [1,2]: 4.635e-01 [1,3]: 3.682e-01\n[2,1]: 9.711e-01 [2,2]: 7.601e-02 [2,3]: 8.833e-01\na_python = a_pymath.asarray()\nprint((a == a_python).all())\nTrue"
+    },
+    {
+        "objectID": "user_guide/arrays",
+        "href": "user_guide/arrays.html#sending-arrays-to-pyansys-math",
+        "title": "Handling arrays between PyAnsys Math and Python > Sending arrays to PyAnsys Math",
+        "section": "Sending arrays to PyAnsys Math",
+        "text": "import numpy as np\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a service.\nmm = pymath.AnsMath()\n\na = np.random.random((2, 3))\na_pymath = mm.matrix(a, name=\"A\")\n\nprint(a_pymath)\nA:\n[1,1]: 4.018e-01 [1,2]: 4.635e-01 [1,3]: 3.682e-01\n[2,1]: 9.711e-01 [2,2]: 7.601e-02 [2,3]: 8.833e-01"
+    },
+    {
+        "objectID": "user_guide/arrays",
+        "href": "user_guide/arrays.html#transfer-a-pyansys-math-matrix-to-numpy",
+        "title": "Handling arrays between PyAnsys Math and Python > Transfer a PyAnsys Math matrix to NumPy",
+        "section": "Transfer a PyAnsys Math matrix to NumPy",
+        "text": "a_python = a_pymath.asarray()\nprint((a == a_python).all())\nTrue"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.axpy",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.axpy.html#axpy",
+        "title": "axpy",
+        "section": "axpy",
+        "text": "Perform the matrix operation: self= val1*obj + val2*self.\nAnsMath object.\nRatio applied to the AnsMath object.\nRatio applied to the self object.\nMatrix operation result of self= val1*obj + val2*self."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj.kron",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.kron.html#kron",
+        "title": "kron",
+        "section": "kron",
+        "text": "Calculates the Kronecker product of two matrices/vectors\nAnsMath object.\nKronecker product between the two matrices/vectors.\nRequires at least MAPDL version 2023R2."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.copy",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.copy.html#copy",
+        "title": "copy",
+        "section": "copy",
+        "text": "Get a copy of the vector."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.free",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.free.html#free",
+        "title": "free",
+        "section": "free",
+        "text": "Delete AnsMath objects.\nAnsMath object to be deleted. Default value is None;\nall the AnsMath objects are deleted."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.status",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.status.html#status",
+        "title": "status",
+        "section": "status",
+        "text": "Print the status of all AnsMath objects."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.html#ansmat",
+        "title": "AnsMat",
+        "section": "AnsMat",
+        "text": "Provides the AnsMath matrix objects.\nAnsMat.asarray([dtype])\nReturn the matrix as a NumPy array.\nAnsMat.axpy(obj, val1, val2)\nPerform the matrix operation: self= val1*obj + val2*self.\nAnsMat.const(value)\nSet all values of the object to a constant.\nAnsMat.copy()\nGet the name of the copy of this object.\nAnsMat.dot(obj)\nMultiply the AnsMath object by another AnsMath object.\nAnsMat.kron(obj)\nCalculates the Kronecker product of two matrices/vectors\nAnsMat.norm([nrmtype])\nReturn the norm of the AnsMath object.\nAnsMat.ones()\nSet all values of the object to one.\nAnsMat.rand()\nSet all values of the object to a random number.\nAnsMat.sym()\nReturn if the matrix is symmetric.\nAnsMat.zeros()\nSet all values of the object to zero.\nAnsMat.T\nTransposition of an AnsMath matrix.\nAnsMat.ncol\nNumber of rows in the matrix.\nAnsMat.nrow\nNumber of columns in the matrix.\nAnsMat.shape\nNumPy-like shape.\nAnsMat.size\nNumber of items in the matrix."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.mat",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.mat.html#mat",
+        "title": "mat",
+        "section": "mat",
+        "text": "Create a matrix.\nNumber of rows. The default is 1.\nNumber of columns. The default is 1.\nNumPy data type of the matrix. The options are np.double,\nnp.int32, and np.int64. The default is np.double.\nInitialization options. Options are \"zeros\", \"ones\",\nor \"rand\". The default is \"zeros\".\nAnsMath matrix name. The default is None, in which case a\nname is automatically generated.\nWhether to return a NumPy array rather than an AnsMath matrix.\nThe default is False.\nAnsMath matrix or NumPy array matrix, depending on the value for\nthe asarray parameter."
+    },
+    {
+        "objectID": "404",
+        "href": "404.html#oops",
+        "title": "Oops!",
+        "section": "Oops!",
+        "text": "This is unexpected.\nThe page you are requesting does not exist."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsVec.asarray",
+        "href": "api/_autosummary/ansys.math.core.math.AnsVec.asarray.html#asarray",
+        "title": "asarray",
+        "section": "asarray",
+        "text": "Return the vector as a NumPy array.\nNumPy data type to upload the array as. The options are numpy.double,\nnumpy.int32, and numpy.int64. The default is the current\narray type.\nNumPy array with the defined data type."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj.const",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.const.html#const",
+        "title": "const",
+        "section": "const",
+        "text": "Set all values of the object to a constant."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.factorize",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.factorize.html#factorize",
+        "title": "factorize",
+        "section": "factorize",
+        "text": "Factorize a matrix.\nAnsMath matrix.\nFactorization algorithm. Options are \"LAPACK\" and \"DSP\".\nThe default is \"LAPACK\" for dense matrices and \"DSP\" for\nsparse matrices.\nWhether the factorization is performed on the input matrix\nrather than on a copy of this matrix. Performing factorization on\na copy of this matrix would result in no changes to the input\nmatrix. The default is True.\nAnsys Solver object.\nFactorize a random matrix."
+    },
+    {
+        "objectID": "examples/use_numpy_arrays",
+        "href": "examples/use_numpy_arrays.html#manipulate-ansmath-vectors-or-dense-matrices-as-numpy-arrays",
+        "title": "Manipulate AnsMath vectors or dense matrices as NumPy arrays",
+        "section": "Manipulate AnsMath vectors or dense matrices as NumPy arrays",
+        "text": "This example demonstrates how to use NumPy arrays to exchange data between PyAnsys Math\nand Python.\nThis example requires Ansys 2021 R2 or later.\nAllocate an AnsMath vector with 10 doubles.\nCreate a NumPy array from this AnsMath vector.\nNote that these are two separate objects. Memory is\nduplicated. Modifying one object does not modify its clone.\nYou can manipulate this NumPy array with all existing NumPy\nfeatures.\nAlternatively, the AnsMath object can be operated on directly with\nusing NumPy methods.\nNote that some methods have APDL corollaries, and these methods are\nmore efficient if performed within PyAnsys Math.\nFor example, the norm method can be performed within PyAnsys Math.\nYou can push back any NumPy vector or 2D array to PyAnsys Math. This\ncreates a new AnsMath vector, which in this case is named \"NewVec:.\nCreate a Python handle to this vector by specifying its name.\nYou can apply the same features to dense APDL matrices and NumPy arrays.\nAllocate an AnsMath dense matrix.\nConvert the AnsMatch dense matrix to a NumPy array.\nUse the matrix method to load the NumPy array to APDL.\nLoad this matrix from APDL and verify it is identical.\nStop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.346 seconds)\nDownload Jupyter notebook: use_numpy_arrays.ipynb\nDownload Python source code: use_numpy_arrays.py\nDownload zipped: use_numpy_arrays.zip\nGallery generated by Sphinx-Gallery\n# Perform required imports and start PyAnsys\n# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n# Perform required imports.\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math as a server.\nmm = pymath.AnsMath()\napdl_vec = mm.ones(10)\nprint(apdl_vec)\nZWXSEL :\n Size : 10\n  1.000e+00   1.000e+00   1.000e+00   1.000e+00   1.000e+00      <       5\n  1.000e+00   1.000e+00   1.000e+00   1.000e+00   1.000e+00      <       10\npv = apdl_vec.asarray()\nprint(pv)\n[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\npv = (pv + 1) ** 2\nprint(pv)\n[4. 4. 4. 4. 4. 4. 4. 4. 4. 4.]\nprint(np.max(apdl_vec))\nprint(np.linalg.norm(apdl_vec))\n1.0\n3.1622776601683795\nprint(apdl_vec.norm(), np.linalg.norm(apdl_vec))\n3.1622776601683795 3.1622776601683795\nmm.set_vec(pv, \"NewVec\")\nprint(mm.status())\nAPDLMATH PARAMETER STATUS-  (      2 PARAMETERS DEFINED)\n\n  Name                   Type            Mem. (MB)       Dims            Workspace\n\n   NEWVEC                VEC             0.000           10              1\n   ZWXSEL                VEC             0.000           10              1\nNone\nv2 = mm.vec(name=\"NewVec\")\nprint(v2)\nNEWVEC :\n Size : 10\n  4.000e+00   4.000e+00   4.000e+00   4.000e+00   4.000e+00      <       5\n  4.000e+00   4.000e+00   4.000e+00   4.000e+00   4.000e+00      <       10\napdl_mat = mm.rand(3, 3)\nplt.imshow(apdl_mat, cmap=\"YlOrBr\")\nplt.colorbar()\nplt.title(\"AnsMath dense matrix\")\nplt.show()\nnp_arr = apdl_mat.asarray()\n\nassert np.allclose(apdl_mat, np_arr)\nprint(apdl_mat)\nprint(np_arr)\nEMOZER:\n [1,1]: 4.170e-01 [1,2]: 9.326e-01 [1,3]: 3.023e-01\n [2,1]: 9.972e-01 [2,2]: 1.144e-04 [2,3]: 9.990e-01\n [3,1]: 7.203e-01 [3,2]: 1.281e-01 [3,3]: 1.468e-01\n[[4.17021999e-01 9.32557361e-01 3.02332568e-01]\n [9.97184808e-01 1.14381197e-04 9.99040516e-01]\n [7.20324489e-01 1.28124448e-01 1.46755893e-01]]\nnp_rand = np.random.random((4, 4))\nans_mat = mm.matrix(np_rand)\n\n# Print the autogenerated name of this matrix.\n\nprint(ans_mat.id)\nOEUHMY\nfrom_ans = ans_mat.asarray()\nprint(np.allclose(from_ans, np_rand))\nTrue\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "examples/use_numpy_arrays",
+        "href": "examples/use_numpy_arrays.html#convert-ansmath-vector-into-numpy-array",
+        "title": "Manipulate AnsMath vectors or dense matrices as NumPy arrays > Convert AnsMath vector into NumPy array",
+        "section": "Convert AnsMath vector into NumPy array",
+        "text": "Allocate an AnsMath vector with 10 doubles.\nCreate a NumPy array from this AnsMath vector.\nNote that these are two separate objects. Memory is\nduplicated. Modifying one object does not modify its clone.\nYou can manipulate this NumPy array with all existing NumPy\nfeatures.\nAlternatively, the AnsMath object can be operated on directly with\nusing NumPy methods.\nNote that some methods have APDL corollaries, and these methods are\nmore efficient if performed within PyAnsys Math.\nFor example, the norm method can be performed within PyAnsys Math.\napdl_vec = mm.ones(10)\nprint(apdl_vec)\nZWXSEL :\n Size : 10\n  1.000e+00   1.000e+00   1.000e+00   1.000e+00   1.000e+00      <       5\n  1.000e+00   1.000e+00   1.000e+00   1.000e+00   1.000e+00      <       10\npv = apdl_vec.asarray()\nprint(pv)\n[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\npv = (pv + 1) ** 2\nprint(pv)\n[4. 4. 4. 4. 4. 4. 4. 4. 4. 4.]\nprint(np.max(apdl_vec))\nprint(np.linalg.norm(apdl_vec))\n1.0\n3.1622776601683795\nprint(apdl_vec.norm(), np.linalg.norm(apdl_vec))\n3.1622776601683795 3.1622776601683795"
+    },
+    {
+        "objectID": "examples/use_numpy_arrays",
+        "href": "examples/use_numpy_arrays.html#copy-numpy-array-to-an-ansmath-vector",
+        "title": "Manipulate AnsMath vectors or dense matrices as NumPy arrays > Copy NumPy array to an AnsMath vector",
+        "section": "Copy NumPy array to an AnsMath vector",
+        "text": "You can push back any NumPy vector or 2D array to PyAnsys Math. This\ncreates a new AnsMath vector, which in this case is named \"NewVec:.\nmm.set_vec(pv, \"NewVec\")\nprint(mm.status())\nAPDLMATH PARAMETER STATUS-  (      2 PARAMETERS DEFINED)\n\n  Name                   Type            Mem. (MB)       Dims            Workspace\n\n   NEWVEC                VEC             0.000           10              1\n   ZWXSEL                VEC             0.000           10              1\nNone"
+    },
+    {
+        "objectID": "examples/use_numpy_arrays",
+        "href": "examples/use_numpy_arrays.html#create-a-python-handle-to-this-vector",
+        "title": "Manipulate AnsMath vectors or dense matrices as NumPy arrays > Create a Python handle to this vector",
+        "section": "Create a Python handle to this vector",
+        "text": "Create a Python handle to this vector by specifying its name.\nv2 = mm.vec(name=\"NewVec\")\nprint(v2)\nNEWVEC :\n Size : 10\n  4.000e+00   4.000e+00   4.000e+00   4.000e+00   4.000e+00      <       5\n  4.000e+00   4.000e+00   4.000e+00   4.000e+00   4.000e+00      <       10"
+    },
+    {
+        "objectID": "examples/use_numpy_arrays",
+        "href": "examples/use_numpy_arrays.html#apply-same-features-to-dense-arrays",
+        "title": "Manipulate AnsMath vectors or dense matrices as NumPy arrays > Apply same features to dense arrays",
+        "section": "Apply same features to dense arrays",
+        "text": "You can apply the same features to dense APDL matrices and NumPy arrays.\nAllocate an AnsMath dense matrix.\nConvert the AnsMatch dense matrix to a NumPy array.\nUse the matrix method to load the NumPy array to APDL.\nLoad this matrix from APDL and verify it is identical.\napdl_mat = mm.rand(3, 3)\nplt.imshow(apdl_mat, cmap=\"YlOrBr\")\nplt.colorbar()\nplt.title(\"AnsMath dense matrix\")\nplt.show()\nnp_arr = apdl_mat.asarray()\n\nassert np.allclose(apdl_mat, np_arr)\nprint(apdl_mat)\nprint(np_arr)\nEMOZER:\n [1,1]: 4.170e-01 [1,2]: 9.326e-01 [1,3]: 3.023e-01\n [2,1]: 9.972e-01 [2,2]: 1.144e-04 [2,3]: 9.990e-01\n [3,1]: 7.203e-01 [3,2]: 1.281e-01 [3,3]: 1.468e-01\n[[4.17021999e-01 9.32557361e-01 3.02332568e-01]\n [9.97184808e-01 1.14381197e-04 9.99040516e-01]\n [7.20324489e-01 1.28124448e-01 1.46755893e-01]]\nnp_rand = np.random.random((4, 4))\nans_mat = mm.matrix(np_rand)\n\n# Print the autogenerated name of this matrix.\n\nprint(ans_mat.id)\nOEUHMY\nfrom_ans = ans_mat.asarray()\nprint(np.allclose(from_ans, np_rand))\nTrue"
+    },
+    {
+        "objectID": "examples/use_numpy_arrays",
+        "href": "examples/use_numpy_arrays.html#stop-pyansys-math",
+        "title": "Manipulate AnsMath vectors or dense matrices as NumPy arrays > Stop PyAnsys Math",
+        "section": "Stop PyAnsys Math",
+        "text": "Stop PyAnsys Math.\nTotal running time of the script: (0 minutes 0.346 seconds)\nDownload Jupyter notebook: use_numpy_arrays.ipynb\nDownload Python source code: use_numpy_arrays.py\nDownload zipped: use_numpy_arrays.zip\nGallery generated by Sphinx-Gallery\nmm._mapdl.exit()\n/home/runner/work/pyansys-math/pyansys-math/.venv/lib/python3.10/site-packages/ansys/mapdl/core/launcher.py:818: UserWarning: The environment variable 'PYMAPDL_START_INSTANCE' is set, hence the argument 'start_instance' is overwritten.\n  warnings.warn("
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.const",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.const.html#const",
+        "title": "const",
+        "section": "const",
+        "text": "Set all values of the object to a constant."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMat.nrow",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMat.nrow.html#nrow",
+        "title": "nrow",
+        "section": "nrow",
+        "text": "Number of columns in the matrix."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMath.add",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMath.add.html#add",
+        "title": "add",
+        "section": "add",
+        "text": "Add two AnsMath vectors or matrices.\nAnsMath object.\nAnsMath object.\nSum of the two input objects. The type of the output matches\nthe type of the input.\nAdd two AnsMath vectors."
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj.zeros",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.zeros.html#zeros",
+        "title": "zeros",
+        "section": "zeros",
+        "text": "Set all values of the object to zero."
+    },
+    {
+        "objectID": "user_guide/index",
+        "href": "user_guide/index.html#user-guide",
+        "title": "User guide",
+        "section": "User guide",
+        "text": "You can use the AnsMath() method to launch an instance of PyAnsys Math.\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math.\nmm = pymath.AnsMath()\nprint(mm)\n APDLMATH PARAMETER STATUS-  (      0 PARAMETERS DEFINED)\n\nName                   Type            Mem. (MB)       Dims            Workspace"
+    },
+    {
+        "objectID": "user_guide/index",
+        "href": "user_guide/index.html#overview",
+        "title": "User guide > Overview",
+        "section": "Overview",
+        "text": "You can use the AnsMath() method to launch an instance of PyAnsys Math.\nimport ansys.math.core.math as pymath\n\n# Start PyAnsys Math.\nmm = pymath.AnsMath()\nprint(mm)\n APDLMATH PARAMETER STATUS-  (      0 PARAMETERS DEFINED)\n\nName                   Type            Mem. (MB)       Dims            Workspace"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.math.core.math.AnsMathObj.ones",
+        "href": "api/_autosummary/ansys.math.core.math.AnsMathObj.ones.html#ones",
+        "title": "ones",
+        "section": "ones",
+        "text": "Set all values of the object to one."
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#release-notes",
+        "title": "Release notes",
+        "section": "Release notes",
+        "text": "This document contains the release notes for the PyAnsys Math project.\nchore: update CHANGELOG for v0.1.5 #328\nmaint: adding update-changelog as a CICD dependency #329\n[pre-commit.ci] pre-commit autoupdate #351\nmaint: implement ansys/actions/check-vulnerabilities in CICD #355\nmaint: bump docker/login-action from 3.1.0 to 3.2.0 in the actions group #356\nmaint: bump docker/login-action from 3.2.0 to 3.3.0 in the actions group #388\nfix: adding a waiting time for MAPDL service to start #354\nmaint: bump pyvista from 0.43.5 to 0.43.6 #331\nmaint: bump pytest from 8.1.1 to 8.2.0 #332\nmaint: bump jupyterlab from 4.1.6 to 4.1.8 #333\nmaint: bump sphinx-gallery from 0.15.0 to 0.16.0 #334\nmaint: bump pyvista[jupyter,trame] from 0.43.5 to 0.43.6 #335\nmaint: bump pyvista from 0.43.6 to 0.43.7 #337\nmaint: bump pyvista[jupyter,trame] from 0.43.5 to 0.43.7 #338\nmaint: bump jupyterlab from 4.1.8 to 4.2.0 #339\nmaint: bump pytest from 8.2.0 to 8.2.1 #341\nmaint: bump pyvista from 0.43.7 to 0.43.8 #342\nmaint: bump ansys-sphinx-theme from 0.15.2 to 0.16.0 #343\nmaint: bump pyvista[jupyter,trame] from 0.43.7 to 0.43.8 #344, #357\nmaint: bump jupyterlab from 4.2.0 to 4.2.1 #346\nmaint: bump sphinx-design from 0.5.0 to 0.6.0 #347\nmaint: bump pyansys-tools-report from 0.7.0 to 0.7.3 #348\nmaint: bump sphinx-notfound-page from 1.0.0 to 1.0.2 #349\nmaint: bump scipy from 1.13.0 to 1.13.1 #350\nmaint: bump trame from 3.6.0 to 3.6.2 #358\nmaint: bump ansys-sphinx-theme from 0.16.0 to 0.16.5 #359\nmaint: bump pytest from 8.2.1 to 8.2.2 #360\nmaint: bump pyvista[jupyter,trame] from 0.43.8 to 0.43.9 #361, #366\nmaint: bump pyvista from 0.43.8 to 0.43.9 #362\nmaint: bump jupyterlab from 4.2.1 to 4.2.2 #363\nmaint: bump sphinx-autodoc-typehints from 2.1.0 to 2.1.1 #364\nmaint: bump numpy from 1.26.4 to 2.1.2 #367\nmaint: bump sphinx-autodoc-typehints from 2.1.1 to 2.2.2 #369\nmaint: bump pyvista[jupyter,trame] from 0.43.9 to 0.43.10 #370\nmaint: bump pyvista from 0.43.9 to 0.43.10 #371\nmaint: bump ansys-sphinx-theme from 0.16.5 to 0.16.6 #372\nmaint: bump jupyterlab from 4.2.2 to 4.2.3 #374\nmaint: bump vtk from 9.3.0 to 9.3.1 #375\nmaint: bump trame from 3.6.2 to 3.6.3 #376\nmaint: bump scipy from 1.13.1 to 1.14.0 #379\nmaint: bump pyvista from 0.43.10 to 0.44.0 #380\nmaint: bump ansys-mapdl-core from 0.68.1 to 0.68.4 #383\nmaint: bump pytest from 8.2.2 to 8.3.1 #384\nmaint: bump sphinx-gallery from 0.16.0 to 0.17.0 #385\nmaint: bump sphinx-autodoc-typehints from 2.2.2 to 2.2.3 #386\nmaint: bump pyvista from 0.44.0 to 0.44.1 #387\nmaint: bump pytest from 8.3.1 to 8.3.2 #390\nmaint: bump sphinx-notfound-page from 1.0.2 to 1.0.4 #391\nmaint: bump pyvista[jupyter,trame] from 0.44.0 to 0.44.1 #393\nmaint: bump jupyterlab from 4.2.3 to 4.2.4 #396\nmaint: bump numpydoc from 1.7.0 to 1.8.0 #397\nmaint: bump sphinx-gallery from 0.17.0 to 0.17.1 #398\nmaint: bump pyansys-tools-report from 0.7.3 to 0.8.0 #400\nmaint: bump ansys-sphinx-theme from 1.0.3 to 1.0.5 #401\nmaint: bump ansys-sphinx-theme from 1.0.5 to 1.0.7 #402\nmaint: bump scipy from 1.14.0 to 1.14.1 #404\nmaint: bump sphinx-autodoc-typehints from 2.2.3 to 2.3.0 #406\nmaint: bump jupyterlab from 4.2.4 to 4.2.5 #407\nmaint: bump sphinx-autobuild from 2024.4.16 to 2024.9.3 #408\nmaint: bump pytest from 8.3.2 to 8.3.3 #409\nmaint: bump trame from 3.6.3 to 3.6.5 #410\nmaint: bump ansys-sphinx-theme from 1.0.7 to 1.0.9 #411\nmaint: bump ansys-mapdl-reader from 0.53.0 to 0.54.1 #412\nmaint: bump ansys-sphinx-theme from 1.0.9 to 1.0.11 #413\nmaint: bump sphinx-autodoc-typehints from 2.3.0 to 2.4.4 #414\nmaint: bump sphinx-autobuild from 2024.9.3 to 2024.9.19 #415\nmaint: bump sphinx-autobuild from 2024.9.19 to 2024.10.3 #421\nmaint: bump ansys-sphinx-theme from 1.0.11 to 1.1.2 #422\n[pre-commit.ci] pre-commit autoupdate #336, #340, #345, #365, #368, #373, #377, #382, #389, #394, #399, #405, #416, #424\nmaint: bump sphinx from 7.3.7 to 8.0.2 #392\nmaint: bump ansys/actions from 6 to 7 in the actions group #395\nci: updating supported Python versions #420\nmaint: bump ansys/actions from 7 to 8 in the actions group #423\nmaint: updating CONTRIBUTORS.md and AUTHORS files #425\nchore: update CHANGELOG for v0.1.4 #325\nci: establish stage dependencies for release #327\ndocs: title level for release notes #326\nfeat: implementing ansys/actions/doc-changelog #316\ndoc: adding release notes in documentation #324\nfix: updating CICD (Vale, MAPDL image) #322\nfix: removing md Vale checks #323\nmaint: bump sphinx-autodoc-typehints from 2.0.0 to 2.1.0 #317\nmaint: bump ansys-sphinx-theme from 0.15.0 to 0.15.2 #318\nmaint: bump sphinx-autobuild from 2024.4.13 to 2024.4.16 #319\nmaint: bump sphinx from 7.2.6 to 7.3.7 #320\nmaint: bump jupyterlab from 4.1.5 to 4.1.6 #321"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#020---2024-10-08",
+        "title": "Release notes > 0.2.0 - 2024-10-08",
+        "section": "0.2.0 - 2024-10-08",
+        "text": "chore: update CHANGELOG for v0.1.5 #328\nmaint: adding update-changelog as a CICD dependency #329\n[pre-commit.ci] pre-commit autoupdate #351\nmaint: implement ansys/actions/check-vulnerabilities in CICD #355\nmaint: bump docker/login-action from 3.1.0 to 3.2.0 in the actions group #356\nmaint: bump docker/login-action from 3.2.0 to 3.3.0 in the actions group #388\nfix: adding a waiting time for MAPDL service to start #354\nmaint: bump pyvista from 0.43.5 to 0.43.6 #331\nmaint: bump pytest from 8.1.1 to 8.2.0 #332\nmaint: bump jupyterlab from 4.1.6 to 4.1.8 #333\nmaint: bump sphinx-gallery from 0.15.0 to 0.16.0 #334\nmaint: bump pyvista[jupyter,trame] from 0.43.5 to 0.43.6 #335\nmaint: bump pyvista from 0.43.6 to 0.43.7 #337\nmaint: bump pyvista[jupyter,trame] from 0.43.5 to 0.43.7 #338\nmaint: bump jupyterlab from 4.1.8 to 4.2.0 #339\nmaint: bump pytest from 8.2.0 to 8.2.1 #341\nmaint: bump pyvista from 0.43.7 to 0.43.8 #342\nmaint: bump ansys-sphinx-theme from 0.15.2 to 0.16.0 #343\nmaint: bump pyvista[jupyter,trame] from 0.43.7 to 0.43.8 #344, #357\nmaint: bump jupyterlab from 4.2.0 to 4.2.1 #346\nmaint: bump sphinx-design from 0.5.0 to 0.6.0 #347\nmaint: bump pyansys-tools-report from 0.7.0 to 0.7.3 #348\nmaint: bump sphinx-notfound-page from 1.0.0 to 1.0.2 #349\nmaint: bump scipy from 1.13.0 to 1.13.1 #350\nmaint: bump trame from 3.6.0 to 3.6.2 #358\nmaint: bump ansys-sphinx-theme from 0.16.0 to 0.16.5 #359\nmaint: bump pytest from 8.2.1 to 8.2.2 #360\nmaint: bump pyvista[jupyter,trame] from 0.43.8 to 0.43.9 #361, #366\nmaint: bump pyvista from 0.43.8 to 0.43.9 #362\nmaint: bump jupyterlab from 4.2.1 to 4.2.2 #363\nmaint: bump sphinx-autodoc-typehints from 2.1.0 to 2.1.1 #364\nmaint: bump numpy from 1.26.4 to 2.1.2 #367\nmaint: bump sphinx-autodoc-typehints from 2.1.1 to 2.2.2 #369\nmaint: bump pyvista[jupyter,trame] from 0.43.9 to 0.43.10 #370\nmaint: bump pyvista from 0.43.9 to 0.43.10 #371\nmaint: bump ansys-sphinx-theme from 0.16.5 to 0.16.6 #372\nmaint: bump jupyterlab from 4.2.2 to 4.2.3 #374\nmaint: bump vtk from 9.3.0 to 9.3.1 #375\nmaint: bump trame from 3.6.2 to 3.6.3 #376\nmaint: bump scipy from 1.13.1 to 1.14.0 #379\nmaint: bump pyvista from 0.43.10 to 0.44.0 #380\nmaint: bump ansys-mapdl-core from 0.68.1 to 0.68.4 #383\nmaint: bump pytest from 8.2.2 to 8.3.1 #384\nmaint: bump sphinx-gallery from 0.16.0 to 0.17.0 #385\nmaint: bump sphinx-autodoc-typehints from 2.2.2 to 2.2.3 #386\nmaint: bump pyvista from 0.44.0 to 0.44.1 #387\nmaint: bump pytest from 8.3.1 to 8.3.2 #390\nmaint: bump sphinx-notfound-page from 1.0.2 to 1.0.4 #391\nmaint: bump pyvista[jupyter,trame] from 0.44.0 to 0.44.1 #393\nmaint: bump jupyterlab from 4.2.3 to 4.2.4 #396\nmaint: bump numpydoc from 1.7.0 to 1.8.0 #397\nmaint: bump sphinx-gallery from 0.17.0 to 0.17.1 #398\nmaint: bump pyansys-tools-report from 0.7.3 to 0.8.0 #400\nmaint: bump ansys-sphinx-theme from 1.0.3 to 1.0.5 #401\nmaint: bump ansys-sphinx-theme from 1.0.5 to 1.0.7 #402\nmaint: bump scipy from 1.14.0 to 1.14.1 #404\nmaint: bump sphinx-autodoc-typehints from 2.2.3 to 2.3.0 #406\nmaint: bump jupyterlab from 4.2.4 to 4.2.5 #407\nmaint: bump sphinx-autobuild from 2024.4.16 to 2024.9.3 #408\nmaint: bump pytest from 8.3.2 to 8.3.3 #409\nmaint: bump trame from 3.6.3 to 3.6.5 #410\nmaint: bump ansys-sphinx-theme from 1.0.7 to 1.0.9 #411\nmaint: bump ansys-mapdl-reader from 0.53.0 to 0.54.1 #412\nmaint: bump ansys-sphinx-theme from 1.0.9 to 1.0.11 #413\nmaint: bump sphinx-autodoc-typehints from 2.3.0 to 2.4.4 #414\nmaint: bump sphinx-autobuild from 2024.9.3 to 2024.9.19 #415\nmaint: bump sphinx-autobuild from 2024.9.19 to 2024.10.3 #421\nmaint: bump ansys-sphinx-theme from 1.0.11 to 1.1.2 #422\n[pre-commit.ci] pre-commit autoupdate #336, #340, #345, #365, #368, #373, #377, #382, #389, #394, #399, #405, #416, #424\nmaint: bump sphinx from 7.3.7 to 8.0.2 #392\nmaint: bump ansys/actions from 6 to 7 in the actions group #395\nci: updating supported Python versions #420\nmaint: bump ansys/actions from 7 to 8 in the actions group #423\nmaint: updating CONTRIBUTORS.md and AUTHORS files #425"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#changed",
+        "title": "Release notes > Changed",
+        "section": "Changed",
+        "text": "chore: update CHANGELOG for v0.1.5 #328\nmaint: adding update-changelog as a CICD dependency #329\n[pre-commit.ci] pre-commit autoupdate #351\nmaint: implement ansys/actions/check-vulnerabilities in CICD #355\nmaint: bump docker/login-action from 3.1.0 to 3.2.0 in the actions group #356\nmaint: bump docker/login-action from 3.2.0 to 3.3.0 in the actions group #388"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#fixed",
+        "title": "Release notes > Fixed",
+        "section": "Fixed",
+        "text": "fix: adding a waiting time for MAPDL service to start #354"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#dependencies",
+        "title": "Release notes > Dependencies",
+        "section": "Dependencies",
+        "text": "maint: bump pyvista from 0.43.5 to 0.43.6 #331\nmaint: bump pytest from 8.1.1 to 8.2.0 #332\nmaint: bump jupyterlab from 4.1.6 to 4.1.8 #333\nmaint: bump sphinx-gallery from 0.15.0 to 0.16.0 #334\nmaint: bump pyvista[jupyter,trame] from 0.43.5 to 0.43.6 #335\nmaint: bump pyvista from 0.43.6 to 0.43.7 #337\nmaint: bump pyvista[jupyter,trame] from 0.43.5 to 0.43.7 #338\nmaint: bump jupyterlab from 4.1.8 to 4.2.0 #339\nmaint: bump pytest from 8.2.0 to 8.2.1 #341\nmaint: bump pyvista from 0.43.7 to 0.43.8 #342\nmaint: bump ansys-sphinx-theme from 0.15.2 to 0.16.0 #343\nmaint: bump pyvista[jupyter,trame] from 0.43.7 to 0.43.8 #344, #357\nmaint: bump jupyterlab from 4.2.0 to 4.2.1 #346\nmaint: bump sphinx-design from 0.5.0 to 0.6.0 #347\nmaint: bump pyansys-tools-report from 0.7.0 to 0.7.3 #348\nmaint: bump sphinx-notfound-page from 1.0.0 to 1.0.2 #349\nmaint: bump scipy from 1.13.0 to 1.13.1 #350\nmaint: bump trame from 3.6.0 to 3.6.2 #358\nmaint: bump ansys-sphinx-theme from 0.16.0 to 0.16.5 #359\nmaint: bump pytest from 8.2.1 to 8.2.2 #360\nmaint: bump pyvista[jupyter,trame] from 0.43.8 to 0.43.9 #361, #366\nmaint: bump pyvista from 0.43.8 to 0.43.9 #362\nmaint: bump jupyterlab from 4.2.1 to 4.2.2 #363\nmaint: bump sphinx-autodoc-typehints from 2.1.0 to 2.1.1 #364\nmaint: bump numpy from 1.26.4 to 2.1.2 #367\nmaint: bump sphinx-autodoc-typehints from 2.1.1 to 2.2.2 #369\nmaint: bump pyvista[jupyter,trame] from 0.43.9 to 0.43.10 #370\nmaint: bump pyvista from 0.43.9 to 0.43.10 #371\nmaint: bump ansys-sphinx-theme from 0.16.5 to 0.16.6 #372\nmaint: bump jupyterlab from 4.2.2 to 4.2.3 #374\nmaint: bump vtk from 9.3.0 to 9.3.1 #375\nmaint: bump trame from 3.6.2 to 3.6.3 #376\nmaint: bump scipy from 1.13.1 to 1.14.0 #379\nmaint: bump pyvista from 0.43.10 to 0.44.0 #380\nmaint: bump ansys-mapdl-core from 0.68.1 to 0.68.4 #383\nmaint: bump pytest from 8.2.2 to 8.3.1 #384\nmaint: bump sphinx-gallery from 0.16.0 to 0.17.0 #385\nmaint: bump sphinx-autodoc-typehints from 2.2.2 to 2.2.3 #386\nmaint: bump pyvista from 0.44.0 to 0.44.1 #387\nmaint: bump pytest from 8.3.1 to 8.3.2 #390\nmaint: bump sphinx-notfound-page from 1.0.2 to 1.0.4 #391\nmaint: bump pyvista[jupyter,trame] from 0.44.0 to 0.44.1 #393\nmaint: bump jupyterlab from 4.2.3 to 4.2.4 #396\nmaint: bump numpydoc from 1.7.0 to 1.8.0 #397\nmaint: bump sphinx-gallery from 0.17.0 to 0.17.1 #398\nmaint: bump pyansys-tools-report from 0.7.3 to 0.8.0 #400\nmaint: bump ansys-sphinx-theme from 1.0.3 to 1.0.5 #401\nmaint: bump ansys-sphinx-theme from 1.0.5 to 1.0.7 #402\nmaint: bump scipy from 1.14.0 to 1.14.1 #404\nmaint: bump sphinx-autodoc-typehints from 2.2.3 to 2.3.0 #406\nmaint: bump jupyterlab from 4.2.4 to 4.2.5 #407\nmaint: bump sphinx-autobuild from 2024.4.16 to 2024.9.3 #408\nmaint: bump pytest from 8.3.2 to 8.3.3 #409\nmaint: bump trame from 3.6.3 to 3.6.5 #410\nmaint: bump ansys-sphinx-theme from 1.0.7 to 1.0.9 #411\nmaint: bump ansys-mapdl-reader from 0.53.0 to 0.54.1 #412\nmaint: bump ansys-sphinx-theme from 1.0.9 to 1.0.11 #413\nmaint: bump sphinx-autodoc-typehints from 2.3.0 to 2.4.4 #414\nmaint: bump sphinx-autobuild from 2024.9.3 to 2024.9.19 #415\nmaint: bump sphinx-autobuild from 2024.9.19 to 2024.10.3 #421\nmaint: bump ansys-sphinx-theme from 1.0.11 to 1.1.2 #422"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#miscellaneous",
+        "title": "Release notes > Miscellaneous",
+        "section": "Miscellaneous",
+        "text": "[pre-commit.ci] pre-commit autoupdate #336, #340, #345, #365, #368, #373, #377, #382, #389, #394, #399, #405, #416, #424"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#documentation",
+        "title": "Release notes > Documentation",
+        "section": "Documentation",
+        "text": "maint: bump sphinx from 7.3.7 to 8.0.2 #392"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#maintenance",
+        "title": "Release notes > Maintenance",
+        "section": "Maintenance",
+        "text": "maint: bump ansys/actions from 6 to 7 in the actions group #395\nci: updating supported Python versions #420\nmaint: bump ansys/actions from 7 to 8 in the actions group #423\nmaint: updating CONTRIBUTORS.md and AUTHORS files #425"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#015---2024-04-22",
+        "title": "Release notes > 0.1.5 - 2024-04-22",
+        "section": "0.1.5 - 2024-04-22",
+        "text": "chore: update CHANGELOG for v0.1.4 #325\nci: establish stage dependencies for release #327\ndocs: title level for release notes #326"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#changed",
+        "title": "Release notes > Changed",
+        "section": "Changed",
+        "text": "chore: update CHANGELOG for v0.1.4 #325\nci: establish stage dependencies for release #327"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#miscellaneous",
+        "title": "Release notes > Miscellaneous",
+        "section": "Miscellaneous",
+        "text": "docs: title level for release notes #326"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#014---2024-04-22",
+        "title": "Release notes > 0.1.4 - 2024-04-22",
+        "section": "0.1.4 - 2024-04-22",
+        "text": "feat: implementing ansys/actions/doc-changelog #316\ndoc: adding release notes in documentation #324\nfix: updating CICD (Vale, MAPDL image) #322\nfix: removing md Vale checks #323\nmaint: bump sphinx-autodoc-typehints from 2.0.0 to 2.1.0 #317\nmaint: bump ansys-sphinx-theme from 0.15.0 to 0.15.2 #318\nmaint: bump sphinx-autobuild from 2024.4.13 to 2024.4.16 #319\nmaint: bump sphinx from 7.2.6 to 7.3.7 #320\nmaint: bump jupyterlab from 4.1.5 to 4.1.6 #321"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#added",
+        "title": "Release notes > Added",
+        "section": "Added",
+        "text": "feat: implementing ansys/actions/doc-changelog #316"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#changed",
+        "title": "Release notes > Changed",
+        "section": "Changed",
+        "text": "doc: adding release notes in documentation #324"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#fixed",
+        "title": "Release notes > Fixed",
+        "section": "Fixed",
+        "text": "fix: updating CICD (Vale, MAPDL image) #322\nfix: removing md Vale checks #323"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#dependencies",
+        "title": "Release notes > Dependencies",
+        "section": "Dependencies",
+        "text": "maint: bump sphinx-autodoc-typehints from 2.0.0 to 2.1.0 #317\nmaint: bump ansys-sphinx-theme from 0.15.0 to 0.15.2 #318\nmaint: bump sphinx-autobuild from 2024.4.13 to 2024.4.16 #319\nmaint: bump sphinx from 7.2.6 to 7.3.7 #320\nmaint: bump jupyterlab from 4.1.5 to 4.1.6 #321"
+    }
+]

@@ -1,0 +1,6 @@
+ncol
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. autoproperty:: AnsMat.ncol

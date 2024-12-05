@@ -1,0 +1,6 @@
+axpy
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMathObj.axpy

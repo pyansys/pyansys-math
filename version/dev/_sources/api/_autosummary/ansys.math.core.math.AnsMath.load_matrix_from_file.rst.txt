@@ -1,0 +1,6 @@
+load\_matrix\_from\_file
+========================
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.load_matrix_from_file

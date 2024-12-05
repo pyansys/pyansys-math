@@ -1,0 +1,6 @@
+add
+===
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.add

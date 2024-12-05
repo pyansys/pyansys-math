@@ -1,0 +1,94 @@
+﻿AnsMath
+=======
+
+.. currentmodule:: ansys.math.core.math
+
+.. autoclass:: AnsMath
+
+   
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree:
+   
+      
+      
+      AnsMath.add
+      
+      
+      AnsMath.damp
+      
+      
+      AnsMath.dot
+      
+      
+      AnsMath.eigs
+      
+      
+      AnsMath.factorize
+      
+      
+      AnsMath.free
+      
+      
+      AnsMath.get_vec
+      
+      
+      AnsMath.load_matrix_from_file
+      
+      
+      AnsMath.mass
+      
+      
+      AnsMath.mat
+      
+      
+      AnsMath.matrix
+      
+      
+      AnsMath.mgs
+      
+      
+      AnsMath.norm
+      
+      
+      AnsMath.ones
+      
+      
+      AnsMath.rand
+      
+      
+      AnsMath.rhs
+      
+      
+      AnsMath.set_vec
+      
+      
+      AnsMath.sparse
+      
+      
+      AnsMath.status
+      
+      
+      AnsMath.stiff
+      
+      
+      AnsMath.subtract
+      
+      
+      AnsMath.svd
+      
+      
+      AnsMath.vec
+      
+      
+      AnsMath.zeros
+      
+   
+   
+
+   
+   
+   

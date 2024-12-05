@@ -1,0 +1,6 @@
+status
+======
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.status

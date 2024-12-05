@@ -1,0 +1,6 @@
+set\_vec
+========
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.set_vec

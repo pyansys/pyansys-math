@@ -1,0 +1,6 @@
+ones
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsVec.ones

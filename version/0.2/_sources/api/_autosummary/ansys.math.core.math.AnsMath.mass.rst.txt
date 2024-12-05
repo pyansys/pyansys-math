@@ -1,0 +1,6 @@
+mass
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.mass

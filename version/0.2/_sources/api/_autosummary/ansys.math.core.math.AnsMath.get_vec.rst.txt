@@ -1,0 +1,6 @@
+get\_vec
+========
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.get_vec

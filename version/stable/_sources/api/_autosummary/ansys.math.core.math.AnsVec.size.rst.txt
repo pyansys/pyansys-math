@@ -1,0 +1,6 @@
+size
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. autoproperty:: AnsVec.size

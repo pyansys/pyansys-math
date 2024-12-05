@@ -1,0 +1,6 @@
+damp
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.damp

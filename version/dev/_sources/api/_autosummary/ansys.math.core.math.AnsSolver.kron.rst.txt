@@ -1,0 +1,6 @@
+kron
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsSolver.kron

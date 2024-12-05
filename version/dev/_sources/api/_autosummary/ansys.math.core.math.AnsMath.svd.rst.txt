@@ -1,0 +1,6 @@
+svd
+===
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.svd

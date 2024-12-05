@@ -1,0 +1,46 @@
+﻿AnsMathObj
+==========
+
+.. currentmodule:: ansys.math.core.math
+
+.. autoclass:: AnsMathObj
+
+   
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree:
+   
+      
+      
+      AnsMathObj.axpy
+      
+      
+      AnsMathObj.const
+      
+      
+      AnsMathObj.copy
+      
+      
+      AnsMathObj.kron
+      
+      
+      AnsMathObj.norm
+      
+      
+      AnsMathObj.ones
+      
+      
+      AnsMathObj.rand
+      
+      
+      AnsMathObj.zeros
+      
+   
+   
+
+   
+   
+   

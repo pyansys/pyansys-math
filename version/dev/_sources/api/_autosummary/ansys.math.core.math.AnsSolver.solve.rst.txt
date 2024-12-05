@@ -1,0 +1,6 @@
+solve
+=====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsSolver.solve

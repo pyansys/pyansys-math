@@ -1,0 +1,6 @@
+mgs
+===
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.mgs

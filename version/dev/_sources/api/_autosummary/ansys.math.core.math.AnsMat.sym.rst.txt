@@ -1,0 +1,6 @@
+sym
+===
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMat.sym

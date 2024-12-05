@@ -1,0 +1,6 @@
+factorize
+=========
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsSolver.factorize

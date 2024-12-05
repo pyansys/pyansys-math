@@ -1,0 +1,6 @@
+norm
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMat.norm

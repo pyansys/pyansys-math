@@ -1,0 +1,6 @@
+dot
+===
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsVec.dot

@@ -1,0 +1,6 @@
+rand
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsSolver.rand

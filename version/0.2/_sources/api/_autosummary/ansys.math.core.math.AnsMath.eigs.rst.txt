@@ -1,0 +1,6 @@
+eigs
+====
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMath.eigs

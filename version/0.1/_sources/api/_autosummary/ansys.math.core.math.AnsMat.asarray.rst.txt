@@ -1,0 +1,6 @@
+asarray
+=======
+
+.. currentmodule:: ansys.math.core.math
+
+.. automethod:: AnsMat.asarray
