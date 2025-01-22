@@ -42,7 +42,7 @@ tests = [
     "pytest-cov==6.0.0",
     "pytest-rerunfailures==15.0",
     "pyvista==0.44.2",
-    "vtk==9.3.1",
+    "vtk==9.4.0",
 ]
 doc = [
     "Sphinx==8.1.3",
@@ -63,7 +63,7 @@ doc = [
     "sphinx-notfound-page==1.0.4",
     "sphinx-gallery==0.18.0",
     "trame==3.7.0",
-    "vtk==9.3.1",
+    "vtk==9.4.0",
 ]
 
 [tool.flit.module]
